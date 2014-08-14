@@ -1,0 +1,2 @@
+allow init kernel:security setenforce;
+allow init self:capability sys_module;
