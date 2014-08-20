@@ -29,6 +29,7 @@
       {"type":"fastboot", "args":"erase misc", "desc":"Erasing misc partition", "timeout":180000},
       {"type":"fastboot", "args":"erase cache", "desc":"Erasing cache partition", "timeout":240000},
       {"type":"fastboot", "args":"erase userdata", "desc":"Erasing userdata partition", "timeout":420000},
+      {"type":"fastboot", "args":"erase persistent", "desc":"Erasing persistent partition", "timeout":240000},
       {"type":"fastboot", "args":"flash system", "desc":"Flashing system partition", "target":"INSTALLED_SYSTEMIMAGE", "timeout":500000},
       {"type":"fastboot", "args":"flash boot", "desc":"Flashing boot partition", "target":"INSTALLED_BOOTIMAGE_TARGET"},
       {"type":"fastboot", "args":"flash recovery", "desc":"Flashing recovery partition", "target":"INSTALLED_RECOVERYIMAGE_TARGET"},
