@@ -1,0 +1,37 @@
+{"config":
+  [{"filename":"update.xml", "commands":"update", "subgroup":"full", "flashtype":"fastboot"},
+   {"filename":"blank.xml", "commands":"blank", "subgroup":"erase_factory", "flashtype":"fastboot_dnx"},
+   {"filename":"recover.xml", "commands":"blank", "subgroup":"full", "flashtype":"fastboot_dnx"},
+   {"filename":"flash.json"}],
+ "configurations":
+   {"update":{"commands":"flash", "startState":"pos", "subgroup":"full", "default":true},
+    "blank":{"commands":"flash", "startState":"dnx_pos", "subgroup":"erase_factory"},
+    "recover":{"commands":"blank", "startState":"dnx_pos", "subgroup":"full"}},
+ "commands":
+   {"update":
+     [{"type":"fastboot", "args":"oem verified-noconfirm", "desc":"Unlock device", "timeout":360000},
+      {"type":"fastboot", "args":"flash bootloader", "desc":"Writing EFI System Partition", "target":"bootloader_bin"},
+      {"type":"fastboot", "args":"flash system", "desc":"Flashing system partition", "target":"INSTALLED_SYSTEMIMAGE", "timeout":500000},
+      {"type":"fastboot", "args":"flash boot", "desc":"Flashing boot partition", "target":"INSTALLED_BOOTIMAGE_TARGET"},
+      {"type":"fastboot", "args":"flash recovery", "desc":"Flashing recovery partition", "target":"INSTALLED_RECOVERYIMAGE_TARGET"},
+      {"type":"fastboot", "args":"reboot", "desc":"Rebooting"}],
+   "blank":
+     [{"type":"fastboot", "args":"flash fw_stage2", "desc":"Flashing fw_stage2 image", "target":"INSTALLED_STAGE2_FIRMWARE", "mandatory":false},
+      {"type":"sleep", "timeout":5000},
+      {"type":"fastboot", "args":"flash osloader", "desc":"Flashing osloader image", "target":"INSTALLED_LOADER"},
+      {"type":"fastboot", "args":"boot", "desc":"Uploading fastboot image.", "target":"USERFASTBOOT_BOOTIMAGE"},
+      {"type":"waitForDevice", "arg":"pos", "timeout":25000},
+      {"type":"fastboot", "args":"oem unlock-noconfirm", "desc":"Unlock device",  "timeout":360000},
+      {"type":"fastboot", "args":"flash oemvars", "desc":"Setting OEM Variables", "target":"BOARD_OEM_VARS_FILE"},
+      {"type":"fastboot", "args":"flash gpt", "desc":"Creating partition table", "target":"BOARD_GPT_INI"},
+      {"type":"fastboot", "args":"flash bootloader", "desc":"Writing EFI System Partition", "target":"bootloader_bin"},
+      {"type":"fastboot", "args":"erase factory", "desc":"Erasing factory partition", "timeout":180000, "restrict":"erase_factory"},
+      {"type":"fastboot", "args":"erase misc", "desc":"Erasing misc partition", "timeout":180000},
+      {"type":"fastboot", "args":"erase cache", "desc":"Erasing cache partition", "timeout":240000},
+      {"type":"fastboot", "args":"erase userdata", "desc":"Erasing userdata partition", "timeout":420000},
+      {"type":"fastboot", "args":"flash system", "desc":"Flashing system partition", "target":"INSTALLED_SYSTEMIMAGE", "timeout":500000},
+      {"type":"fastboot", "args":"flash boot", "desc":"Flashing boot partition", "target":"INSTALLED_BOOTIMAGE_TARGET"},
+      {"type":"fastboot", "args":"flash recovery", "desc":"Flashing recovery partition", "target":"INSTALLED_RECOVERYIMAGE_TARGET"},
+      {"type":"fastboot", "args":"oem verified-noconfirm", "desc":"Set device to Verified state", "retry":2, "timeout":360000},
+      {"type":"fastboot", "args":"reboot", "desc":"Rebooting", "retry":2, "timeout":60000, "mandatory":true}]}
+}
