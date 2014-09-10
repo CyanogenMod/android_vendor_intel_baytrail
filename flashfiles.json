@@ -1,6 +1,6 @@
 {"config":
   [{"filename":"update.xml", "commands":"update", "subgroup":"full", "flashtype":"fastboot"},
-   {"filename":"blank.xml", "commands":"blank", "subgroup":"erase_factory", "flashtype":"fastboot_dnx"},
+   {"filename":"flash.xml", "commands":"blank", "subgroup":"erase_factory", "flashtype":"fastboot_dnx"},
    {"filename":"recover.xml", "commands":"blank", "subgroup":"full", "flashtype":"fastboot_dnx"},
    {"filename":"flash.json"}],
  "configurations":
