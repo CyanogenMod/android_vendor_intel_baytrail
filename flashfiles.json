@@ -4,8 +4,8 @@
    {"filename":"recover.xml", "commands":"blank", "subgroup":"full", "flashtype":"fastboot_dnx"},
    {"filename":"flash.json"}],
  "configurations":
-   {"update":{"commands":"flash", "startState":"pos", "subgroup":"full", "default":true},
-    "blank":{"commands":"flash", "startState":"dnx_pos", "subgroup":"erase_factory"},
+   {"update":{"commands":"blank", "startState":"pos", "subgroup":"full", "default":true},
+    "blank":{"commands":"blank", "startState":"dnx_pos", "subgroup":"erase_factory"},
     "recover":{"commands":"blank", "startState":"dnx_pos", "subgroup":"full"}},
  "commands":
    {"update":
@@ -33,6 +33,6 @@
       {"type":"fastboot", "args":"flash system", "desc":"Flashing system partition", "target":"INSTALLED_SYSTEMIMAGE", "timeout":500000},
       {"type":"fastboot", "args":"flash boot", "desc":"Flashing boot partition", "target":"INSTALLED_BOOTIMAGE_TARGET"},
       {"type":"fastboot", "args":"flash recovery", "desc":"Flashing recovery partition", "target":"INSTALLED_RECOVERYIMAGE_TARGET"},
-      {"type":"fastboot", "args":"oem verified-noconfirm", "desc":"Set device to Verified state", "retry":2, "timeout":360000},
-      {"type":"fastboot", "args":"reboot", "desc":"Rebooting", "retry":2, "timeout":60000, "mandatory":true}]}
+      {"type":"fastboot", "args":"oem verified-noconfirm", "desc":"Set device to Verified state", "timeout":360000},
+      {"type":"fastboot", "args":"reboot", "desc":"Rebooting"}]}
 }
