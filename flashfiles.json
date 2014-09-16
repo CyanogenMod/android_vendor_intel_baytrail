@@ -34,7 +34,8 @@
       {"type":"fastboot", "args":"flash system", "desc":"Flashing system partition", "source":"images", "target":"system.img", "timeout":500000},
       {"type":"fastboot", "args":"flash boot", "desc":"Flashing boot partition", "source":"boot:boot", "target":"boot.img"},
       {"type":"fastboot", "args":"flash recovery", "desc":"Flashing recovery partition", "source":"boot:recovery", "target":"recovery.img"},
-      {"type":"fastboot", "args":"oem verified", "desc":"Set device to Verified state", "timeout":360000},
-      {"type":"fastboot", "args":"oem provisioning-done", "desc":"Leave Provisioning Mode", "timeout":360000},
+      {"type":"fastboot", "args":"oem verified", "desc":"Set device to Verified state", "variant":["eng","userdebug"], "timeout":360000},
+      {"type":"fastboot", "args":"oem lock", "desc":"Set device to Locked state", "variant":["user"], "timeout":360000},
+      {"type":"fastboot", "args":"oem provisioning-done", "desc":"Leave Provisioning Mode"},
       {"type":"fastboot", "args":"reboot", "desc":"Rebooting"}]}
 }
