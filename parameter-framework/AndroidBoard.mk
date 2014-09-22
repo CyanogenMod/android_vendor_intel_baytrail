@@ -1,5 +1,8 @@
 PLATFORM_PFW_CONFIG_PATH := $(call my-dir)
 
+# The file included defines the following variable
+# - $(PFW_TUNING_ALLOWED)
+# It allows to set or not the tuning flags according to the type of build.
 include device/intel/common/audio/parameter-framework/AndroidBoard.mk
 
 LOCAL_PATH := $(PLATFORM_PFW_CONFIG_PATH)
@@ -12,6 +15,7 @@ LOCAL_MODULE_TAGS := optional
 LOCAL_REQUIRED_MODULES := \
         SstSubsystem-bytcr-rt56xx-common.xml \
         SysfsPmdownTimeSubsystem.xml \
+        ConfigurationSubsystem.xml \
         CommonAlgoTypes.xml \
         Gain.xml \
         VoiceVolume.xml \
@@ -29,11 +33,29 @@ include $(CLEAR_VARS)
 LOCAL_MODULE := parameter-framework.route.baytrail
 LOCAL_MODULE_TAGS := optional
 LOCAL_REQUIRED_MODULES :=  \
-        ParameterFrameworkConfigurationRoute-bytcr.xml \
+        ParameterFrameworkConfigurationRoute.xml \
         RouteSubsystem-common-bytcr.xml \
         RouteSubsystem-bytcr.xml \
         RouteClass-bytcr.xml \
         RouteConfigurableDomains-bytcr.xml
+include $(BUILD_PHONY_PACKAGE)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := parameter-framework.audio.$(TARGET_DEVICE)
+LOCAL_MODULE_TAGS := optional
+LOCAL_REQUIRED_MODULES := \
+        parameter-framework.audio.$(TARGET_DEVICE).nodomains \
+        AudioConfigurableDomains-$(DEVICE_SOUND_CARD_NAME)-default.xml
+include $(BUILD_PHONY_PACKAGE)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := parameter-framework.audio.$(TARGET_DEVICE).nodomains
+LOCAL_MODULE_TAGS := optional
+LOCAL_REQUIRED_MODULES :=  \
+        parameter-framework.audio.baytrail \
+        AudioClass-$(DEVICE_SOUND_CARD_NAME)-default.xml \
+        ParameterFrameworkConfiguration-$(DEVICE_SOUND_CARD_NAME)-default.xml
+
 include $(BUILD_PHONY_PACKAGE)
 
 ##################################################
@@ -59,26 +81,11 @@ LOCAL_REQUIRED_MODULES := libfs-subsystem
 include $(BUILD_PREBUILT)
 
 ######### Route PFW #########
-# Route PFW top-level configuration file
-include $(CLEAR_VARS)
-LOCAL_MODULE := ParameterFrameworkConfigurationRoute-bytcr.xml
-LOCAL_MODULE_TAGS := optional
-LOCAL_MODULE_CLASS := ETC
-LOCAL_MODULE_RELATIVE_PATH := parameter-framework
-LOCAL_SRC_FILES := $(LOCAL_MODULE).in
-
-include $(BUILD_SYSTEM)/base_rules.mk
-
-$(LOCAL_BUILT_MODULE): MY_FILE := $(LOCAL_PATH)/$(LOCAL_MODULE).in
-$(LOCAL_BUILT_MODULE): MY_TUNING_ALLOWED := $(PFW_TUNING_ALLOWED)
-$(LOCAL_BUILT_MODULE):
-	$(hide) mkdir -p $(dir $@)
-	sed -e 's/@TUNING_ALLOWED@/$(MY_TUNING_ALLOWED)/' $(MY_FILE) > $@
-
 ######### Route Structures #########
 
 include $(CLEAR_VARS)
 LOCAL_MODULE := RouteSubsystem-bytcr.xml
+LOCAL_MODULE_STEM := RouteSubsystem.xml
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_CLASS := ETC
 LOCAL_MODULE_RELATIVE_PATH := parameter-framework/Structure/Route
@@ -105,6 +112,7 @@ include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
 LOCAL_MODULE := RouteClass-bytcr.xml
+LOCAL_MODULE_STEM := RouteClass.xml
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_CLASS := ETC
 LOCAL_MODULE_RELATIVE_PATH := parameter-framework/Structure/Route
@@ -114,6 +122,7 @@ include $(BUILD_PREBUILT)
 ######### Route Settings #########
 include $(CLEAR_VARS)
 LOCAL_MODULE := RouteConfigurableDomains-bytcr.xml
+LOCAL_MODULE_STEM := RouteConfigurableDomains.xml
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_CLASS := ETC
 LOCAL_MODULE_RELATIVE_PATH := parameter-framework/Settings/Route
