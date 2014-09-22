@@ -21,7 +21,7 @@
       {"type":"sleep", "timeout":5000},
       {"type":"fastboot", "args":"flash osloader", "desc":"Flashing osloader image", "source":"bootloaderzip", "target":"loader.efi"},
       {"type":"fastboot", "args":"boot", "desc":"Uploading fastboot image.", "source":"fastboot", "target":"fastboot.img"},
-      {"type":"waitForDevice", "arg":"pos", "timeout":25000},
+      {"type":"sleep", "timeout":25000},
       {"type":"fastboot", "args":"oem unlock", "desc":"Unlock device",  "timeout":360000},
       {"type":"fastboot", "args":"flash oemvars", "desc":"Setting OEM Variables", "source":"provdatazip", "target":"oemvars.txt", "!platform":["byt_mrd7"]},
       {"type":"fastboot", "args":"flash gpt", "desc":"Creating partition table", "source":"provdatazip", "target":"gpt.ini"},
