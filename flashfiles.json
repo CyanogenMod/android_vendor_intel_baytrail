@@ -26,7 +26,6 @@
       {"type":"fastboot", "args":"flash oemvars", "desc":"Setting OEM Variables", "source":"provdatazip", "target":"oemvars.txt", "!platform":["byt_mrd7"]},
       {"type":"fastboot", "args":"flash gpt", "desc":"Creating partition table", "source":"provdatazip", "target":"gpt.ini"},
       {"type":"fastboot", "args":"flash bootloader", "desc":"Writing EFI System Partition", "source":"bootloader", "target":"bootloader"},
-      {"type":"fastboot", "args":"erase factory", "desc":"Erasing factory partition", "timeout":180000, "restrict":"erase_factory"},
       {"type":"fastboot", "args":"erase misc", "desc":"Erasing misc partition", "timeout":180000},
       {"type":"fastboot", "args":"erase cache", "desc":"Erasing cache partition", "timeout":240000},
       {"type":"fastboot", "args":"erase userdata", "desc":"Erasing userdata partition", "timeout":420000},
