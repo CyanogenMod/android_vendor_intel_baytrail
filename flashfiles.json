@@ -5,7 +5,7 @@
    {"filename":"recover.xml", "commands":"blank", "subgroup":"full", "flashtype":"fastboot_dnx"},
    {"filename":"flash.json"}],
  "configurations":
-   {"update":{"commands":"blank", "startState":"pos", "subgroup":"full", "default":true},
+   {"update":{"commands":"update", "startState":"pos", "subgroup":"full", "default":true},
     "blank":{"commands":"blank", "startState":"dnx_pos", "subgroup":"erase_factory"},
     "recover":{"commands":"blank", "startState":"dnx_pos", "subgroup":"full"}},
  "commands":
