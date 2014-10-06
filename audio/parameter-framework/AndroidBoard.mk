@@ -126,5 +126,28 @@ LOCAL_MODULE_STEM := RouteConfigurableDomains.xml
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_CLASS := ETC
 LOCAL_MODULE_RELATIVE_PATH := parameter-framework/Settings/Route
+
+ifeq ($(pfw_rebuild_settings),true)
+include $(CLEAR_PFW_VARS)
+# Refresh domain file
+LOCAL_REQUIRED_MODULES := \
+    ParameterFrameworkConfigurationRoute.xml \
+    RouteClass-bytcr.xml \
+    RouteSubsystem-common-bytcr.xml \
+    RouteSubsystem-bytcr.xml \
+
+PFW_COPYBACK := Settings/Route/$(LOCAL_MODULE)
+PFW_TOPLEVEL_FILE := $(TARGET_OUT_ETC)/parameter-framework/ParameterFrameworkConfigurationRoute-$(DEVICE_SOUND_CARD_NAME)-default.xml
+PFW_CRITERIA_FILE := $(COMMON_PFW_CONFIG_PATH)/RouteCriteria.txt
+PFW_EDD_FILES := \
+    $(PLATFORM_PFW_CONFIG_PATH)/Settings/Route/routes-applicability.pfw \
+    $(PLATFORM_PFW_CONFIG_PATH)/Settings/Route/routes-configuration.pfw \
+    $(COMMON_PFW_CONFIG_PATH)/Settings/Route/parameters.pfw
+
+include $(BUILD_PFW_SETTINGS)
+
+else
+# Use the existing file
 LOCAL_SRC_FILES := Settings/Route/$(LOCAL_MODULE)
 include $(BUILD_PREBUILT)
+endif
