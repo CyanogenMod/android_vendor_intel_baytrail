@@ -849,9 +849,21 @@
     </Settings>
   </ConfigurableDomain>
   <ConfigurableDomain Name="Route.HwCodec1IA.Playback" SequenceAware="false">
-    <Configurations/>
-    <ConfigurableElements/>
-    <Settings/>
+    <Configurations>
+      <Configuration Name="NotApplicable">
+        <CompoundRule Type="All"/>
+      </Configuration>
+    </Configurations>
+    <ConfigurableElements>
+      <ConfigurableElement Path="/Route/route_mgr/routes/hwcodec1ia/route_full_duplex_playback/route_playback/status/applicable"/>
+    </ConfigurableElements>
+    <Settings>
+      <Configuration Name="NotApplicable">
+        <ConfigurableElement Path="/Route/route_mgr/routes/hwcodec1ia/route_full_duplex_playback/route_playback/status/applicable">
+          <BooleanParameter Name="applicable">0</BooleanParameter>
+        </ConfigurableElement>
+      </Configuration>
+    </Settings>
   </ConfigurableDomain>
   <ConfigurableDomain Name="Route.HwCodec1IA.Capture" SequenceAware="false">
     <Configurations>
