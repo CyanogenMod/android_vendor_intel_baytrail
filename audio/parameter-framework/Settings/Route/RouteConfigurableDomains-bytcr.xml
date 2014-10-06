@@ -110,7 +110,7 @@
           <BooleanParameter Name="require_postdisable">0</BooleanParameter>
         </ConfigurableElement>
         <ConfigurableElement Path="/Route/route_mgr/routes/media/stream_route_full_duplex_playback/stream_route_playback/config/silence_prolog_ms">
-          <IntegerParameter Name="silence_prolog_ms">0</IntegerParameter>
+          <IntegerParameter Name="silence_prolog_ms">5</IntegerParameter>
         </ConfigurableElement>
         <ConfigurableElement Path="/Route/route_mgr/routes/media/stream_route_full_duplex_playback/stream_route_playback/config/channels">
           <IntegerParameter Name="channels">2</IntegerParameter>
@@ -155,7 +155,7 @@
           <BooleanParameter Name="require_postdisable">0</BooleanParameter>
         </ConfigurableElement>
         <ConfigurableElement Path="/Route/route_mgr/routes/media/stream_route_full_duplex_capture/stream_route_capture/config/silence_prolog_ms">
-          <IntegerParameter Name="silence_prolog_ms">0</IntegerParameter>
+          <IntegerParameter Name="silence_prolog_ms">5</IntegerParameter>
         </ConfigurableElement>
         <ConfigurableElement Path="/Route/route_mgr/routes/media/stream_route_full_duplex_capture/stream_route_capture/config/channels">
           <IntegerParameter Name="channels">2</IntegerParameter>
@@ -200,7 +200,7 @@
           <BooleanParameter Name="require_postdisable">0</BooleanParameter>
         </ConfigurableElement>
         <ConfigurableElement Path="/Route/route_mgr/routes/voice/stream_route_full_duplex_playback/stream_route_playback/config/silence_prolog_ms">
-          <IntegerParameter Name="silence_prolog_ms">0</IntegerParameter>
+          <IntegerParameter Name="silence_prolog_ms">5</IntegerParameter>
         </ConfigurableElement>
         <ConfigurableElement Path="/Route/route_mgr/routes/voice/stream_route_full_duplex_playback/stream_route_playback/config/channels">
           <IntegerParameter Name="channels">2</IntegerParameter>
@@ -245,7 +245,7 @@
           <BooleanParameter Name="require_postdisable">0</BooleanParameter>
         </ConfigurableElement>
         <ConfigurableElement Path="/Route/route_mgr/routes/voice/stream_route_full_duplex_capture/stream_route_capture/config/silence_prolog_ms">
-          <IntegerParameter Name="silence_prolog_ms">0</IntegerParameter>
+          <IntegerParameter Name="silence_prolog_ms">5</IntegerParameter>
         </ConfigurableElement>
         <ConfigurableElement Path="/Route/route_mgr/routes/voice/stream_route_full_duplex_capture/stream_route_capture/config/channels">
           <IntegerParameter Name="channels">2</IntegerParameter>
@@ -290,7 +290,7 @@
           <BooleanParameter Name="require_postdisable">0</BooleanParameter>
         </ConfigurableElement>
         <ConfigurableElement Path="/Route/route_mgr/routes/deep_media/stream_route_playback/config/silence_prolog_ms">
-          <IntegerParameter Name="silence_prolog_ms">0</IntegerParameter>
+          <IntegerParameter Name="silence_prolog_ms">5</IntegerParameter>
         </ConfigurableElement>
         <ConfigurableElement Path="/Route/route_mgr/routes/deep_media/stream_route_playback/config/channels">
           <IntegerParameter Name="channels">2</IntegerParameter>
@@ -335,7 +335,7 @@
           <BooleanParameter Name="require_postdisable">0</BooleanParameter>
         </ConfigurableElement>
         <ConfigurableElement Path="/Route/route_mgr/routes/low_latency/stream_route_playback/config/silence_prolog_ms">
-          <IntegerParameter Name="silence_prolog_ms">0</IntegerParameter>
+          <IntegerParameter Name="silence_prolog_ms">5</IntegerParameter>
         </ConfigurableElement>
         <ConfigurableElement Path="/Route/route_mgr/routes/low_latency/stream_route_playback/config/channels">
           <IntegerParameter Name="channels">2</IntegerParameter>

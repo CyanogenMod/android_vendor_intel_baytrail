@@ -7,7 +7,7 @@ supDomain: Calibration
 				component: stream_route_full_duplex_playback/stream_route_playback/config
 					require_preenable = 0
 					require_postdisable = 0
-					silence_prolog_ms = 0
+					silence_prolog_ms = 5
 					channels = 2
 					channels_policy = copy,copy
 					rate = 48000
@@ -24,7 +24,7 @@ supDomain: Calibration
 				component: stream_route_full_duplex_capture/stream_route_capture/config
 					require_preenable = 0
 					require_postdisable = 0
-					silence_prolog_ms = 0
+					silence_prolog_ms = 5
 					channels = 2
 					channels_policy = copy,copy
 					rate = 48000
@@ -42,7 +42,7 @@ supDomain: Calibration
 				component: stream_route_full_duplex_playback/stream_route_playback/config
 					require_preenable = 0
 					require_postdisable = 0
-					silence_prolog_ms = 0
+					silence_prolog_ms = 5
 					channels = 2
 					channels_policy = copy,copy
 					rate = 16000
@@ -59,7 +59,7 @@ supDomain: Calibration
 				component: stream_route_full_duplex_capture/stream_route_capture/config
 					require_preenable = 0
 					require_postdisable = 0
-					silence_prolog_ms = 0
+					silence_prolog_ms = 5
 					channels = 2
 					channels_policy = copy,copy
 					rate = 16000
@@ -77,7 +77,7 @@ supDomain: Calibration
 				component: stream_route_playback/config
 					require_preenable = 0
 					require_postdisable = 0
-					silence_prolog_ms = 0
+					silence_prolog_ms = 5
 					channels = 2
 					channels_policy = copy,copy
 					rate = 48000
@@ -95,7 +95,7 @@ supDomain: Calibration
 				component: stream_route_playback/config
 					require_preenable = 0
 					require_postdisable = 0
-					silence_prolog_ms = 0
+					silence_prolog_ms = 5
 					channels = 2
 					channels_policy = copy,copy
 					rate = 48000
