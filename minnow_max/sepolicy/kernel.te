@@ -1,3 +1,0 @@
-allow kernel self:security setenforce;
-# kdevtmpfs
-allow kernel self:capability mknod;
