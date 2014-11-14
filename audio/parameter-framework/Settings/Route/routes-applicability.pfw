@@ -53,7 +53,7 @@ supDomain: Calibration
 							voice_recognition = 1
 							voice_communication = 1
 							remote_submix = 1
-							hotword = 0
+							hotword = 1
 						effects_supported = ""
 
 			component: /Route/route_mgr/routes/voice

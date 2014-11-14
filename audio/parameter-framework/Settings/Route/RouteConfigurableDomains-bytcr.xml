@@ -278,7 +278,7 @@
           <BitParameter Name="remote_submix">1</BitParameter>
         </ConfigurableElement>
         <ConfigurableElement Path="/Route/route_mgr/routes/media/stream_duplex/capture/config/attributes/input_sources/hotword">
-          <BitParameter Name="hotword">0</BitParameter>
+          <BitParameter Name="hotword">1</BitParameter>
         </ConfigurableElement>
         <ConfigurableElement Path="/Route/route_mgr/routes/voice/stream_duplex/playback/config/require_preenable">
           <BooleanParameter Name="require_preenable">0</BooleanParameter>
@@ -629,6 +629,7 @@
             <SelectionCriterionRule SelectionCriterion="InputSources" MatchesWhen="Includes" Value="VoiceDownlink"/>
             <SelectionCriterionRule SelectionCriterion="InputSources" MatchesWhen="Includes" Value="VoiceCall"/>
             <SelectionCriterionRule SelectionCriterion="InputSources" MatchesWhen="Includes" Value="VoiceCommunication"/>
+            <SelectionCriterionRule SelectionCriterion="InputSources" MatchesWhen="Includes" Value="Hotword"/>
           </CompoundRule>
           <CompoundRule Type="Any">
             <SelectionCriterionRule SelectionCriterion="PreProcessorRequestedByActiveInput" MatchesWhen="Is" Value="Agc"/>
@@ -976,6 +977,7 @@
               <SelectionCriterionRule SelectionCriterion="InputSources" MatchesWhen="Includes" Value="Camcorder"/>
               <SelectionCriterionRule SelectionCriterion="InputSources" MatchesWhen="Includes" Value="VoiceRecognition"/>
               <SelectionCriterionRule SelectionCriterion="InputSources" MatchesWhen="Includes" Value="VoiceCommunication"/>
+              <SelectionCriterionRule SelectionCriterion="InputSources" MatchesWhen="Includes" Value="Hotword"/>
             </CompoundRule>
           </CompoundRule>
           <CompoundRule Type="All">
@@ -985,6 +987,7 @@
               <SelectionCriterionRule SelectionCriterion="InputSources" MatchesWhen="Includes" Value="Camcorder"/>
               <SelectionCriterionRule SelectionCriterion="InputSources" MatchesWhen="Includes" Value="VoiceRecognition"/>
               <SelectionCriterionRule SelectionCriterion="InputSources" MatchesWhen="Includes" Value="VoiceCommunication"/>
+              <SelectionCriterionRule SelectionCriterion="InputSources" MatchesWhen="Includes" Value="Hotword"/>
             </CompoundRule>
           </CompoundRule>
           <CompoundRule Type="All">
@@ -1190,6 +1193,7 @@
                 <SelectionCriterionRule SelectionCriterion="InputSources" MatchesWhen="Includes" Value="Camcorder"/>
                 <SelectionCriterionRule SelectionCriterion="InputSources" MatchesWhen="Includes" Value="VoiceRecognition"/>
                 <SelectionCriterionRule SelectionCriterion="InputSources" MatchesWhen="Includes" Value="VoiceCommunication"/>
+                <SelectionCriterionRule SelectionCriterion="InputSources" MatchesWhen="Includes" Value="Hotword"/>
               </CompoundRule>
             </CompoundRule>
           </CompoundRule>

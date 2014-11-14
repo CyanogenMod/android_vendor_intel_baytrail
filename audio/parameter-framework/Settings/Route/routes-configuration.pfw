@@ -55,6 +55,7 @@ supDomain: StreamRoute
 						InputSources Includes VoiceDownlink
 						InputSources Includes VoiceCall
 						InputSources Includes VoiceCommunication
+						InputSources Includes Hotword
 					ANY
 						PreProcessorRequestedByActiveInput Is Agc
 						PreProcessorRequestedByActiveInput Is none
@@ -255,6 +256,7 @@ supDomain: Route
 							InputSources Includes Camcorder
 							InputSources Includes VoiceRecognition
 							InputSources Includes VoiceCommunication
+							InputSources Includes Hotword
 					## Copied from HwCodec1IA
 					ALL
 						InputDevices Includes Headset
@@ -263,6 +265,7 @@ supDomain: Route
 							InputSources Includes Camcorder
 							InputSources Includes VoiceRecognition
 							InputSources Includes VoiceCommunication
+							InputSources Includes Hotword
 					ALL
 						OutputDevices Includes Headset
 						AndroidMode Is InCsvCall
@@ -377,6 +380,7 @@ supDomain: Route
 								InputSources Includes Camcorder
 								InputSources Includes VoiceRecognition
 								InputSources Includes VoiceCommunication
+								InputSources Includes Hotword
 
 				/Route/route_mgr/routes/bt_ia/route_duplex/capture/status/applicable = 1
 
