@@ -23,10 +23,10 @@ supDomain: StreamRoute
 						AndroidMode Is InVoipCall
 					OutputFlags Includes Primary
 
-				/Route/route_mgr/routes/media/stream_route_full_duplex_playback/stream_route_playback/status/applicable = 1
+				/Route/route_mgr/routes/media/stream_duplex/playback/status/applicable = 1
 
 			conf: NotApplicable
-				/Route/route_mgr/routes/media/stream_route_full_duplex_playback/stream_route_playback/status/applicable = 0
+				/Route/route_mgr/routes/media/stream_duplex/playback/status/applicable = 0
 
 		domain: Capture
 
@@ -59,17 +59,17 @@ supDomain: StreamRoute
 						PreProcessorRequestedByActiveInput Is Agc
 						PreProcessorRequestedByActiveInput Is none
 
-				/Route/route_mgr/routes/media/stream_route_full_duplex_capture/stream_route_capture/status/applicable = 1
+				/Route/route_mgr/routes/media/stream_duplex/capture/status/applicable = 1
 
 			conf: NotApplicable
-				/Route/route_mgr/routes/media/stream_route_full_duplex_capture/stream_route_capture/status/applicable = 0
+				/Route/route_mgr/routes/media/stream_duplex/capture/status/applicable = 0
 
 
 	# completly disable the 'voice' route
 	domain: Voice
 		conf: Disabled
-			/Route/route_mgr/routes/voice/stream_route_full_duplex_playback/stream_route_playback/status/applicable = 0
-			/Route/route_mgr/routes/voice/stream_route_full_duplex_capture/stream_route_capture/status/applicable = 0
+			/Route/route_mgr/routes/voice/stream_duplex/playback/status/applicable = 0
+			/Route/route_mgr/routes/voice/stream_duplex/capture/status/applicable = 0
 
 	supDomain: LowLatency
 
@@ -92,10 +92,10 @@ supDomain: StreamRoute
 						AndroidMode Is RingTone
 					OutputFlags Includes Fast
 
-				/Route/route_mgr/routes/low_latency/stream_route_playback/status/applicable = 1
+				/Route/route_mgr/routes/low_latency/stream_playback/status/applicable = 1
 
 			conf: NotApplicable
-				/Route/route_mgr/routes/low_latency/stream_route_playback/status/applicable = 0
+				/Route/route_mgr/routes/low_latency/stream_playback/status/applicable = 0
 
 
 	supDomain: DeepBuffer
@@ -117,10 +117,10 @@ supDomain: StreamRoute
 					AndroidMode Is Normal
 					OutputFlags Includes Deep
 
-				/Route/route_mgr/routes/deep_media/stream_route_playback/status/applicable = 1
+				/Route/route_mgr/routes/deep_media/stream_playback/status/applicable = 1
 
 			conf: NotApplicable
-				/Route/route_mgr/routes/deep_media/stream_route_playback/status/applicable = 0
+				/Route/route_mgr/routes/deep_media/stream_playback/status/applicable = 0
 
 
 	supDomain: NeedReconfigure
@@ -135,11 +135,11 @@ supDomain: StreamRoute
 						StatesChanged Includes MicMute
 						StatesChanged Includes PreProcessorRequestedByActiveInput
 
-					component: /Route/route_mgr/routes/voice/stream_route_full_duplex_capture/stream_route_capture/status/
+					component: /Route/route_mgr/routes/voice/stream_duplex/capture/status/
 						need_reconfigure = 1
 
 				conf: No
-					component: /Route/route_mgr/routes/voice/stream_route_full_duplex_capture/stream_route_capture/status/
+					component: /Route/route_mgr/routes/voice/stream_duplex/capture/status/
 						need_reconfigure = 0
 
 		domain: Playback
@@ -148,15 +148,15 @@ supDomain: StreamRoute
 				StatesChanged Includes OutputDevices
 
 				component: /Route/route_mgr/routes/
-					media/stream_route_full_duplex_playback/stream_route_playback/status/need_reconfigure = 1
-					voice/stream_route_full_duplex_playback/stream_route_playback/status/need_reconfigure = 1
-					deep_media/stream_route_playback/status/need_reconfigure = 1
+					media/stream_duplex/playback/status/need_reconfigure = 1
+					voice/stream_duplex/playback/status/need_reconfigure = 1
+					deep_media/stream_playback/status/need_reconfigure = 1
 
 			conf: No
 				component: /Route/route_mgr/routes/
-					media/stream_route_full_duplex_playback/stream_route_playback/status/need_reconfigure = 0
-					voice/stream_route_full_duplex_playback/stream_route_playback/status/need_reconfigure = 0
-					deep_media/stream_route_playback/status/need_reconfigure = 0
+					media/stream_duplex/playback/status/need_reconfigure = 0
+					voice/stream_duplex/playback/status/need_reconfigure = 0
+					deep_media/stream_playback/status/need_reconfigure = 0
 
 		domain: Capture
 
@@ -165,11 +165,11 @@ supDomain: StreamRoute
 				StatesChanged Includes PreProcessorRequestedByActiveInput
 
 				component: /Route/route_mgr/routes/
-					media/stream_route_full_duplex_capture/stream_route_capture/status/need_reconfigure = 1
+					media/stream_duplex/capture/status/need_reconfigure = 1
 
 			conf: No
 				component: /Route/route_mgr/routes/
-					media/stream_route_full_duplex_capture/stream_route_capture/status/need_reconfigure = 0
+					media/stream_duplex/capture/status/need_reconfigure = 0
 
 supDomain: Route
 
@@ -223,10 +223,10 @@ supDomain: Route
 							FmEnabled Is True
 							# CmeDirectStreamPlayback Is True
 
-				/Route/route_mgr/routes/hwcodec0ia/route_full_duplex_playback/route_playback/status/applicable = 1
+				/Route/route_mgr/routes/hwcodec0ia/route_duplex/playback/status/applicable = 1
 
 			conf: NotApplicable
-				/Route/route_mgr/routes/hwcodec0ia/route_full_duplex_playback/route_playback/status/applicable = 0
+				/Route/route_mgr/routes/hwcodec0ia/route_duplex/playback/status/applicable = 0
 
 
 		domain: Capture
@@ -270,10 +270,10 @@ supDomain: Route
 							ModemAudioStatus Is True
 							# CmeDirectStreamCapture Is True
 
-				/Route/route_mgr/routes/hwcodec0ia/route_full_duplex_capture/route_capture/status/applicable = 1
+				/Route/route_mgr/routes/hwcodec0ia/route_duplex/capture/status/applicable = 1
 
 			conf: NotApplicable
-				/Route/route_mgr/routes/hwcodec0ia/route_full_duplex_capture/route_capture/status/applicable = 0
+				/Route/route_mgr/routes/hwcodec0ia/route_duplex/capture/status/applicable = 0
 
 
 	supDomain: HwCodec1IA
@@ -281,13 +281,13 @@ supDomain: Route
 		domain: Playback
 
 			conf: NotApplicable
-				/Route/route_mgr/routes/hwcodec1ia/route_full_duplex_playback/route_playback/status/applicable = 0
+				/Route/route_mgr/routes/hwcodec1ia/route_duplex/playback/status/applicable = 0
 
 
 
 		domain: Capture
 			conf: NotApplicable
-				/Route/route_mgr/routes/hwcodec1ia/route_full_duplex_capture/route_capture/status/applicable = 0
+				/Route/route_mgr/routes/hwcodec1ia/route_duplex/capture/status/applicable = 0
 
 	supDomain: ModemIA
 
@@ -307,13 +307,13 @@ supDomain: Route
 						OutputDevices Is ScoCarkit
 
 				component: /Route/route_mgr/routes/modemia/
-					route_full_duplex_playback/route_playback/status/applicable = 1
-					route_full_duplex_capture/route_capture/status/applicable = 1
+					route_duplex/playback/status/applicable = 1
+					route_duplex/capture/status/applicable = 1
 
 			conf: NotApplicable
 				component: /Route/route_mgr/routes/modemia/
-					route_full_duplex_playback/route_playback/status/applicable = 0
-					route_full_duplex_capture/route_capture/status/applicable = 0
+					route_duplex/playback/status/applicable = 0
+					route_duplex/capture/status/applicable = 0
 
 		domain: NeedReconfigure
 
@@ -322,11 +322,11 @@ supDomain: Route
 					StatesChanged Includes MicMute
 					StatesChanged Includes OutputDevices
 
-				component: /Route/route_mgr/routes/modemia/route_full_duplex_playback/route_playback/status/
+				component: /Route/route_mgr/routes/modemia/route_duplex/playback/status/
 					need_reconfigure = 1
 
 			conf: No
-				component: /Route/route_mgr/routes/modemia/route_full_duplex_playback/route_playback/status/
+				component: /Route/route_mgr/routes/modemia/route_duplex/playback/status/
 					need_reconfigure = 0
 
 	supDomain: BtIA
@@ -351,10 +351,10 @@ supDomain: Route
 									ModemAudioStatus Is True
 									# CmeDirectStreamPlayback Is True
 
-				/Route/route_mgr/routes/bt_ia/route_full_duplex_playback/route_playback/status/applicable = 1
+				/Route/route_mgr/routes/bt_ia/route_duplex/playback/status/applicable = 1
 
 			conf: NotApplicable
-				/Route/route_mgr/routes/bt_ia/route_full_duplex_playback/route_playback/status/applicable = 0
+				/Route/route_mgr/routes/bt_ia/route_duplex/playback/status/applicable = 0
 
 		domain: Capture
 
@@ -378,10 +378,10 @@ supDomain: Route
 								InputSources Includes VoiceRecognition
 								InputSources Includes VoiceCommunication
 
-				/Route/route_mgr/routes/bt_ia/route_full_duplex_capture/route_capture/status/applicable = 1
+				/Route/route_mgr/routes/bt_ia/route_duplex/capture/status/applicable = 1
 
 			conf: NotApplicable
-				/Route/route_mgr/routes/bt_ia/route_full_duplex_capture/route_capture/status/applicable = 0
+				/Route/route_mgr/routes/bt_ia/route_duplex/capture/status/applicable = 0
 
 
 	supDomain: FMIA
@@ -391,10 +391,10 @@ supDomain: Route
 			conf: Applicable
 				FmEnabled Is True
 
-				/Route/route_mgr/routes/fm_ia/route_full_duplex_capture/route_capture/status/applicable = 1
+				/Route/route_mgr/routes/fm_ia/route_duplex/capture/status/applicable = 1
 
 			conf: NotApplicable
-				/Route/route_mgr/routes/fm_ia/route_full_duplex_capture/route_capture/status/applicable = 0
+				/Route/route_mgr/routes/fm_ia/route_duplex/capture/status/applicable = 0
 
 
 	supDomain: HWCodec
@@ -414,13 +414,13 @@ supDomain: Route
 						StatesChanged Includes OutputDevices
 
 					component: /Route/route_mgr/routes/
-						hwcodec0ia/route_full_duplex_playback/route_playback/status/need_reconfigure = 1
-						hwcodec1ia/route_full_duplex_playback/route_playback/status/need_reconfigure = 1
+						hwcodec0ia/route_duplex/playback/status/need_reconfigure = 1
+						hwcodec1ia/route_duplex/playback/status/need_reconfigure = 1
 
 				conf: No
 					component: /Route/route_mgr/routes/
-						hwcodec0ia/route_full_duplex_playback/route_playback/status/need_reconfigure = 0
-						hwcodec1ia/route_full_duplex_playback/route_playback/status/need_reconfigure = 0
+						hwcodec0ia/route_duplex/playback/status/need_reconfigure = 0
+						hwcodec1ia/route_duplex/playback/status/need_reconfigure = 0
 
 			domain: Capture
 
@@ -436,13 +436,13 @@ supDomain: Route
 						StatesChanged Includes MicMute
 
 					component: /Route/route_mgr/routes/
-						hwcodec0ia/route_full_duplex_capture/route_capture/status/need_reconfigure = 1
-						hwcodec1ia/route_full_duplex_capture/route_capture/status/need_reconfigure = 1
+						hwcodec0ia/route_duplex/capture/status/need_reconfigure = 1
+						hwcodec1ia/route_duplex/capture/status/need_reconfigure = 1
 
 				conf: No
 					component: /Route/route_mgr/routes/
-						hwcodec0ia/route_full_duplex_capture/route_capture/status/need_reconfigure = 0
-						hwcodec1ia/route_full_duplex_capture/route_capture/status/need_reconfigure = 0
+						hwcodec0ia/route_duplex/capture/status/need_reconfigure = 0
+						hwcodec1ia/route_duplex/capture/status/need_reconfigure = 0
 
 	supDomain: VoiceProcessingLock
 
@@ -459,10 +459,10 @@ supDomain: Route
 								ModemAudioStatus Is True
 								# CmeDirectStreamCapture Is True
 
-					/Route/route_mgr/routes/voice_processing_lock/route_full_duplex_capture/route_capture/status/applicable = 1
+					/Route/route_mgr/routes/voice_processing_lock/route_duplex/capture/status/applicable = 1
 
 				conf: No
-					/Route/route_mgr/routes/voice_processing_lock/route_full_duplex_capture/route_capture/status/applicable = 0
+					/Route/route_mgr/routes/voice_processing_lock/route_duplex/capture/status/applicable = 0
 
 			domain: Playback
 
@@ -475,10 +475,10 @@ supDomain: Route
 								ModemAudioStatus Is True
 								# CmeDirectStreamPlayback Is True
 
-					/Route/route_mgr/routes/voice_processing_lock/route_full_duplex_playback/route_playback/status/applicable = 1
+					/Route/route_mgr/routes/voice_processing_lock/route_duplex/playback/status/applicable = 1
 
 				conf: No
-					/Route/route_mgr/routes/voice_processing_lock/route_full_duplex_playback/route_playback/status/applicable = 0
+					/Route/route_mgr/routes/voice_processing_lock/route_duplex/playback/status/applicable = 0
 
 		domain: NeedReroute
 
@@ -491,10 +491,10 @@ supDomain: Route
 					ALL
 						AndroidMode Is InVoipCall
 						StatesChanged Includes VoIPBandType
-				/Route/route_mgr/routes/voice_processing_lock/route_full_duplex_playback/route_playback/status/need_reroute = 1
-				/Route/route_mgr/routes/voice_processing_lock/route_full_duplex_capture/route_capture/status/need_reroute = 1
+				/Route/route_mgr/routes/voice_processing_lock/route_duplex/playback/status/need_reroute = 1
+				/Route/route_mgr/routes/voice_processing_lock/route_duplex/capture/status/need_reroute = 1
 
 			conf: No
-				/Route/route_mgr/routes/voice_processing_lock/route_full_duplex_playback/route_playback/status/need_reroute = 0
-				/Route/route_mgr/routes/voice_processing_lock/route_full_duplex_capture/route_capture/status/need_reroute = 0
+				/Route/route_mgr/routes/voice_processing_lock/route_duplex/playback/status/need_reroute = 0
+				/Route/route_mgr/routes/voice_processing_lock/route_duplex/capture/status/need_reroute = 0
 

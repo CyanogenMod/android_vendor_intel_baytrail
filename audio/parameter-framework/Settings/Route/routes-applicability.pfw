@@ -4,77 +4,113 @@ supDomain: Calibration
 		conf: Default
 
 			component: /Route/route_mgr/routes/media
-				component: stream_route_full_duplex_playback/stream_route_playback/config
-					require_preenable = 0
-					require_postdisable = 0
-					silence_prolog_ms = 5
-					channels = 2
-					channels_policy = copy,copy
-					rate = 48000
-					format = Pcm16Bit
-					period_size = 1024
-					period_count = 4
-					start_threshold = 0
-					stop_threshold = 0
-					silence_threshold = 0
-					avail_min = 0
-					applicability_mask = 0x2
-					effects_supported = ""
+				component: stream_duplex
+					component: playback/config
+						require_preenable = 0
+						require_postdisable = 0
+						silence_prolog_ms = 5
+						channels = 2
+						channels_policy = copy,copy
+						rate = 48000
+						format = Pcm16Bit
+						period_size = 1024
+						period_count = 4
+						start_threshold = 0
+						stop_threshold = 0
+						silence_threshold = 0
+						avail_min = 0
+						component: attributes/output_flags
+							direct = 0
+							primary = 1
+							fast = 0
+							deep_buffer = 0
+							compress_offload = 0
+							non_blocking = 0
+							hw_av_sync = 0
+						effects_supported = ""
 
-				component: stream_route_full_duplex_capture/stream_route_capture/config
-					require_preenable = 0
-					require_postdisable = 0
-					silence_prolog_ms = 5
-					channels = 2
-					channels_policy = copy,copy
-					rate = 48000
-					format = Pcm16Bit
-					period_size = 1152
-					period_count = 2
-					start_threshold = 1
-					stop_threshold = 2304
-					silence_threshold = 0
-					avail_min = 1152
-					applicability_mask = 0xFF
-					effects_supported = ""
+					component: capture/config
+						require_preenable = 0
+						require_postdisable = 0
+						silence_prolog_ms = 5
+						channels = 2
+						channels_policy = copy,copy
+						rate = 48000
+						format = Pcm16Bit
+						period_size = 1152
+						period_count = 2
+						start_threshold = 1
+						stop_threshold = 2304
+						silence_threshold = 0
+						avail_min = 1152
+						component: attributes/input_sources
+							default = 1
+							mic = 1
+							voice_uplink = 1
+							voice_downlink = 1
+							voice_call = 1
+							camcorder = 1
+							voice_recognition = 1
+							voice_communication = 1
+							remote_submix = 1
+							hotword = 0
+						effects_supported = ""
 
 			component: /Route/route_mgr/routes/voice
-				component: stream_route_full_duplex_playback/stream_route_playback/config
-					require_preenable = 0
-					require_postdisable = 0
-					silence_prolog_ms = 5
-					channels = 2
-					channels_policy = copy,copy
-					rate = 16000
-					format = Pcm16Bit
-					period_size = 320
-					period_count = 4
-					start_threshold = 319
-					stop_threshold = 1280
-					silence_threshold = 0
-					avail_min = 320
-					applicability_mask = 0x2
-					effects_supported = ""
+				component: stream_duplex
+					component: playback/config
+						require_preenable = 0
+						require_postdisable = 0
+						silence_prolog_ms = 5
+						channels = 2
+						channels_policy = copy,copy
+						rate = 16000
+						format = Pcm16Bit
+						period_size = 320
+						period_count = 4
+						start_threshold = 319
+						stop_threshold = 1280
+						silence_threshold = 0
+						avail_min = 320
+						component: attributes/output_flags
+							direct = 0
+							primary = 1
+							fast = 0
+							deep_buffer = 0
+							compress_offload = 0
+							non_blocking = 0
+							hw_av_sync = 0
+						effects_supported = ""
 
-				component: stream_route_full_duplex_capture/stream_route_capture/config
-					require_preenable = 0
-					require_postdisable = 0
-					silence_prolog_ms = 5
-					channels = 2
-					channels_policy = copy,copy
-					rate = 16000
-					format = Pcm16Bit
-					period_size = 320
-					period_count = 4
-					start_threshold = 1
-					stop_threshold = 1280
-					silence_threshold = 0
-					avail_min = 320
-					applicability_mask = 0x82
-					effects_supported = Automatic Gain Control,Noise Suppression,Acoustic Echo Canceller
+					component: capture/config
+						require_preenable = 0
+						require_postdisable = 0
+						silence_prolog_ms = 5
+						channels = 2
+						channels_policy = copy,copy
+						rate = 16000
+						format = Pcm16Bit
+						period_size = 320
+						period_count = 4
+						start_threshold = 1
+						stop_threshold = 1280
+						silence_threshold = 0
+						avail_min = 320
+						component: attributes/input_sources
+							default = 0
+							mic = 1
+							voice_uplink = 0
+							voice_downlink = 0
+							voice_call = 0
+							camcorder = 0
+							voice_recognition = 0
+							voice_communication = 1
+							remote_submix = 0
+							hotword = 0
+						effects_supported = Automatic Gain Control,Noise Suppression,Acoustic Echo Canceller
 
-			component: /Route/route_mgr/routes/deep_media
-				component: stream_route_playback/config
+			component: /Route/route_mgr/routes/deep_media/stream_playback
+				component: config
 					require_preenable = 0
 					require_postdisable = 0
 					silence_prolog_ms = 5
@@ -88,11 +124,18 @@ supDomain: Calibration
 					stop_threshold = 18432
 					silence_threshold = 0
 					avail_min = 4608
-					applicability_mask = 0x8
+					component: attributes/output_flags
+						direct = 0
+						primary = 0
+						fast = 0
+						deep_buffer = 1
+						compress_offload = 0
+						non_blocking = 0
+						hw_av_sync = 0
 					effects_supported = ""
 
-			component: /Route/route_mgr/routes/low_latency
-				component: stream_route_playback/config
+			component: /Route/route_mgr/routes/low_latency/stream_playback
+				component: config
 					require_preenable = 0
 					require_postdisable = 0
 					silence_prolog_ms = 5
@@ -106,10 +149,17 @@ supDomain: Calibration
 					stop_threshold = 1280
 					silence_threshold = 0
 					avail_min = 240
-					applicability_mask = 0x4
+					component: attributes/output_flags
+						direct = 0
+						primary = 0
+						fast = 1
+						deep_buffer = 0
+						compress_offload = 0
+						non_blocking = 0
+						hw_av_sync = 0
 					effects_supported = ""
 
 			component: /Route/route_mgr/routes/
-				modemia/route_full_duplex_playback/route_playback/status/need_reconfigure = 0
-				bt_ia/route_full_duplex_playback/route_playback/status/need_reconfigure = 0
-				bt_ia/route_full_duplex_capture/route_capture/status/need_reconfigure = 0
+				modemia/route_duplex/playback/status/need_reconfigure = 0
+				bt_ia/route_duplex/playback/status/need_reconfigure = 0
+				bt_ia/route_duplex/capture/status/need_reconfigure = 0
