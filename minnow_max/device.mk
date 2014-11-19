@@ -338,6 +338,18 @@ PRODUCT_PACKAGES += lights.$(TARGET_BOARD_PLATFORM)
 PRODUCT_PACKAGES += \
         memtrack.$(TARGET_BOARD_PLATFORM)
 ##############################################################
+# Source: device/intel/mixins/groups/bluetooth/btusb/product.mk
+##############################################################
+PRODUCT_PACKAGES += \
+    audio.a2dp.default \
+		ath3k-1.fw \
+
+PRODUCT_COPY_FILES += frameworks/native/data/etc/android.hardware.bluetooth.xml:system/etc/permissions/android.hardware.bluetooth.xml \
+		frameworks/native/data/etc/android.hardware.bluetooth_le.xml:system/etc/permissions/android.hardware.bluetooth_le.xml
+
+ADDITIONAL_BUILD_PROPERTIES += bluetooth.hwcfg=stop \
+                bluetooth.rfkill=1
+##############################################################
 # Source: device/intel/mixins/groups/art-config/default/product.mk
 ##############################################################
 # This is needed to enable silver art optimizer.

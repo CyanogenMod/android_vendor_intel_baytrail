@@ -320,6 +320,14 @@ TARGET_USE_PRIVATE_LIBM := true
 ##############################################################
 BOARD_KERNEL_CMDLINE += console=ttyS0,115200n8
 ##############################################################
+# Source: device/intel/mixins/groups/bluetooth/btusb/BoardConfig.mk
+##############################################################
+BOARD_HAVE_BLUETOOTH := true
+BOARD_HAVE_BLUETOOTH_LINUX := true
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/intel/common/bluetooth/bcm43241/
+DEVICE_PACKAGE_OVERLAYS += device/intel/common/bluetooth/overlay-bt-pan
+
+##############################################################
 # Source: device/intel/mixins/groups/art-config/default/BoardConfig.mk
 ##############################################################
 # Enable dex-preoptimization to speed up the first boot sequence
