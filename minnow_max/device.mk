@@ -122,11 +122,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.heapminfree=512k \
     dalvik.vm.heapmaxfree=8m
 ##############################################################
-# Source: device/intel/mixins/groups/houdini/true/product.mk
-##############################################################
-$(call inherit-product-if-exists, vendor/intel/houdini/houdini.mk)
-
-##############################################################
 # Source: device/intel/mixins/groups/graphics/ufo_gen7/product.mk
 ##############################################################
 #
@@ -219,12 +214,6 @@ PRODUCT_PACKAGES += \
     com.android.future.usb.accessory
 
 ##############################################################
-# Source: device/intel/mixins/groups/touch/ft5x0x/product.mk
-##############################################################
-PRODUCT_COPY_FILES += \
-        device/intel/common/touch/ft5x0x.idc:system/usr/idc/ft5x0x.idc \
-        frameworks/native/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml
-##############################################################
 # Source: device/intel/mixins/groups/device-type/tablet/product.mk
 ##############################################################
 PRODUCT_CHARACTERISTICS := tablet
@@ -232,87 +221,6 @@ PRODUCT_CHARACTERISTICS := tablet
 PRODUCT_COPY_FILES += \
         frameworks/native/data/etc/tablet_core_hardware.xml:system/etc/permissions/tablet_core_hardware.xml
 
-##############################################################
-# Source: device/intel/mixins/groups/gms/true/product.mk
-##############################################################
-$(call inherit-product-if-exists, vendor/google/gms/products/intel_gms.mk)
-##############################################################
-# Source: device/intel/mixins/groups/debug-tools/true/product.mk
-##############################################################
-# If this a debugging build include the public debug modules
-ifneq ($(filter eng userdebug,$(TARGET_BUILD_VARIANT)),)
-
-PRODUCT_PACKAGES += AndroidTerm libjackpal-androidterm4
-
-endif
-##############################################################
-# Source: device/intel/mixins/groups/charger/true/product.mk
-##############################################################
-PRODUCT_PACKAGES += charger charger_res_images
-
-##############################################################
-# Source: device/intel/mixins/groups/hdcpd/true/product.mk
-##############################################################
-# Enable media content protection services
-
-# HDCP Daemon
-PRODUCT_PACKAGES += hdcpd
-##############################################################
-# Source: device/intel/mixins/groups/widevine/true/product.mk
-##############################################################
-ifneq ($(BOARD_USE_64BIT_USERSPACE),true)
-#enable Widevine drm
-PRODUCT_PROPERTY_OVERRIDES += drm.service.enabled=true
-
-PRODUCT_COPY_FILES += device/intel/common/media/mfx_omxil_core_widevine.conf:system/etc/mfx_omxil_core.conf
-
-# There is an additional dependency on hdcpd that should be controlled
-# through the content-protection mixin
-
-PRODUCT_PACKAGES += com.google.widevine.software.drm.xml \
-    com.google.widevine.software.drm \
-    libdrmwvmplugin \
-    libwvm \
-    libdrmdecrypt \
-    libWVStreamControlAPI_L1 \
-    libwvdrm_L1
-
-PRODUCT_PACKAGES_ENG += WidevineSamplePlayer
-
-# WV Modular
-PRODUCT_PACKAGES += libwvdrmengine
-
-PRODUCT_PACKAGES_ENG += ExoPlayerDemo
-
-PRODUCT_PACKAGES += liboemcrypto
-
-PRODUCT_PACKAGES += libmeimm libsecmem
-
-BOARD_WIDEVINE_OEMCRYPTO_LEVEL := 1
-else
-$(warning "We don't have widevine support on 64bit userspace currently!")
-# Make generic definition of media components.
-PRODUCT_COPY_FILES += device/intel/common/media/mfx_omxil_core.conf:system/etc/mfx_omxil_core.conf
-endif # no 64bit support for widevine
-##############################################################
-# Source: device/intel/mixins/groups/power/true/product.mk
-##############################################################
-# Power HAL
-PRODUCT_PACKAGES += power.$(TARGET_BOARD_PLATFORM) \
-                    power_hal_helper
-
-##############################################################
-# Source: device/intel/mixins/groups/lights/true/product.mk
-##############################################################
-# Lights HAL
-PRODUCT_PACKAGES += lights.$(TARGET_BOARD_PLATFORM)
-
-##############################################################
-# Source: device/intel/mixins/groups/memtrack/true/product.mk
-##############################################################
-# memtrack HAL
-PRODUCT_PACKAGES += \
-        memtrack.$(TARGET_BOARD_PLATFORM)
 ##############################################################
 # Source: device/intel/mixins/groups/bluetooth/btusb/product.mk
 ##############################################################
@@ -339,4 +247,11 @@ endif
 # This will build the plugins/libart-extension.so library,  which is dynamically loaded by
 # AOSP and contains Intel optimizations to the compiler.
 PRODUCT_PACKAGES += libart-extension libartd-extension
+##############################################################
+# Source: device/intel/mixins/groups/widevine/default/product.mk
+##############################################################
+# Make generic definition of media components.
+PRODUCT_COPY_FILES += device/intel/common/media/mfx_omxil_core.conf:system/etc/mfx_omxil_core.conf
+
+
 # ------------------ END MIX-IN DEFINITIONS ------------------

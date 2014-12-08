@@ -184,53 +184,6 @@ TARGET_CPU_ABI_LIST_32_BIT := x86
 TARGET_ARCH_VARIANT := silvermont
 TARGET_CPU_SMP := true
 ##############################################################
-# Source: device/intel/mixins/groups/houdini/true/BoardConfig.mk
-##############################################################
-# Install Native Bridge
-ifeq ($(WITH_NATIVE_BRIDGE),true)
-
-# Enable ARM codegen for x86 with Native Bridge
-BUILD_ARM_FOR_X86 := true
-
-# Native Bridge ABI List
-NB_ABI_LIST_32_BIT := armeabi-v7a armeabi
-# NB_ABI_LIST_64_BIT := arm64-v8a
-
-# Support 64 Bit Apps
-ifeq ($(TARGET_SUPPORTS_64_BIT_APPS),true)
-  TARGET_CPU_ABI_LIST_64_BIT ?= $(TARGET_CPU_ABI) $(TARGET_CPU_ABI2)
-  ifeq ($(TARGET_SUPPORTS_32_BIT_APPS),true)
-    TARGET_CPU_ABI_LIST_32_BIT ?= $(TARGET_2ND_CPU_ABI) $(TARGET_2ND_CPU_ABI2)
-  endif
-  ifneq ($(findstring ro.zygote=zygote32_64,$(PRODUCT_DEFAULT_PROPERTY_OVERRIDES)),)
-    TARGET_CPU_ABI_LIST := \
-        $(TARGET_CPU_ABI_LIST_32_BIT) \
-        $(TARGET_CPU_ABI_LIST_64_BIT) \
-        $(NB_ABI_LIST_32_BIT) \
-        $(NB_ABI_LIST_64_BIT)
-    TARGET_CPU_ABI_LIST_32_BIT += $(NB_ABI_LIST_32_BIT)
-  else
-    ifeq ($(TARGET_SUPPORTS_32_BIT_APPS),true)
-      TARGET_CPU_ABI_LIST := \
-          $(TARGET_CPU_ABI_LIST_64_BIT) \
-          $(TARGET_CPU_ABI_LIST_32_BIT) \
-          $(NB_ABI_LIST_32_BIT) \
-          $(NB_ABI_LIST_64_BIT)
-      TARGET_CPU_ABI_LIST_32_BIT += $(NB_ABI_LIST_32_BIT)
-    else
-      TARGET_CPU_ABI_LIST := $(TARGET_CPU_ABI_LIST_64_BIT) $(NB_ABI_LIST_64_BIT)
-    endif
-  endif
-  TARGET_CPU_ABI_LIST_64_BIT += $(NB_ABI_LIST_64_BIT)
-
-else
-  TARGET_CPU_ABI_LIST_32_BIT ?= $(TARGET_CPU_ABI) $(TARGET_CPU_ABI2)
-  TARGET_CPU_ABI_LIST_32_BIT += $(NB_ABI_LIST_32_BIT)
-  TARGET_CPU_ABI_LIST := $(TARGET_CPU_ABI_LIST_32_BIT)
-endif
-
-endif
-##############################################################
 # Source: device/intel/mixins/groups/graphics/ufo_gen7/BoardConfig.mk.1
 ##############################################################
 # Select ufo gen7 libs
@@ -293,11 +246,6 @@ DEVICE_PACKAGE_OVERLAYS += device/intel/common/navigationbar/overlay
 ##############################################################
 DEVICE_PACKAGE_OVERLAYS += device/intel/common/device-type/overlay-tablet
 ##############################################################
-# Source: device/intel/mixins/groups/gms/true/BoardConfig.mk
-##############################################################
-
-DEVICE_PACKAGE_OVERLAYS += device/intel/common/gms/overlay
-##############################################################
 # Source: device/intel/mixins/groups/factory-scripts/true/BoardConfig.mk
 ##############################################################
 # Include factory archive in 'make dist' output
@@ -308,11 +256,6 @@ TARGET_BUILD_INTEL_FACTORY_SCRIPTS := true
 ##############################################################
 FLASHFILES_CONFIG ?= $(TARGET_DEVICE_DIR)/flashfiles.json
 USE_INTEL_FLASHFILES := true
-
-##############################################################
-# Source: device/intel/mixins/groups/libmintel/true/BoardConfig.mk
-##############################################################
-TARGET_USE_PRIVATE_LIBM := true
 
 ##############################################################
 # Source: device/intel/mixins/groups/serialport/ttyS0/BoardConfig.mk

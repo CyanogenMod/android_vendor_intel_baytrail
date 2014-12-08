@@ -50,30 +50,6 @@ service watchdogd /sbin/watchdogd
     oneshot
     seclabel u:r:watchdogd:s0
 ##############################################################
-# Source: device/intel/mixins/groups/houdini/true/init.rc
-##############################################################
-# Enable native bridge for target executables
-on early-init
-    mount binfmt_misc binfmt_misc /proc/sys/fs/binfmt_misc
-
-on property:ro.enable.native.bridge.exec=1
-    copy /system/etc/binfmt_misc/arm_exe /proc/sys/fs/binfmt_misc/register
-    copy /system/etc/binfmt_misc/arm_dyn /proc/sys/fs/binfmt_misc/register
-
-on property:ro.enable.native.bridge.exec64=1
-    copy /system/etc/binfmt_misc/arm64_exe /proc/sys/fs/binfmt_misc/register
-    copy /system/etc/binfmt_misc/arm64_dyn /proc/sys/fs/binfmt_misc/register
-##############################################################
-# Source: device/intel/mixins/groups/bugreport/default/init.rc
-##############################################################
-# bugreport is triggered by holding down volume down, volume up and power
-service bugreport /system/bin/dumpstate -d -p -B \
-        -o /data/data/com.android.shell/files/bugreports/bugreport
-    class main
-    disabled
-    oneshot
-    keycodes 114 115 116
-##############################################################
 # Source: device/intel/mixins/groups/graphics/ufo_gen7/init.rc.1
 ##############################################################
 on boot
@@ -185,12 +161,6 @@ service iprenew_eth0 /system/bin/dhcpcd -n
 on boot
     write /sys/devices/pci0000\:00/0000\:00\:14.0/power/control auto
 ##############################################################
-# Source: device/intel/mixins/groups/charger/true/init.rc
-##############################################################
-service charger /charger
-    class charger
-
-##############################################################
 # Source: device/intel/mixins/groups/disk-bus/mmc-minnow/init.rc
 ##############################################################
 on init
@@ -200,51 +170,6 @@ on init
     # /dev/block/by-name so that we can use the same fstabs everywhere.
     symlink /dev/block/platform/80860F16:00/by-name /dev/block/by-name
 
-##############################################################
-# Source: device/intel/mixins/groups/hdcpd/true/init.rc
-##############################################################
-# Note that this service must start as root to set up a mem-mapped region
-# and once that is set up it will drop all unnecessary capabilities and
-# will not show up as a root process in the steady state.
-service hdcpd /system/bin/hdcpd
-    class main
-    user root
-    group graphics drmrpc
-    seclabel u:r:hdcpd:s0
-##############################################################
-# Source: device/intel/mixins/groups/power/true/init.rc
-##############################################################
-on post-fs
-    mkdir /sys/fs/cgroup/cpuset
-    mount cgroup none /sys/fs/cgroup/cpuset cpuset
-    write /sys/fs/cgroup/cpuset/cgroup.clone_children 1
-
-    # Create group to be used by power hal
-    mkdir /sys/fs/cgroup/cpuset/power_hal 0770 root system
-    write /sys/fs/cgroup/cpuset/power_hal/cgroup.clone_children 1
-    chown system system /sys/fs/cgroup/cpuset/power_hal/cpuset.cpus
-
-    mkdir /sys/fs/cgroup/cpuset/power_hal/non_interactive 0770 root system
-    write /sys/fs/cgroup/cpuset/power_hal/non_interactive/cgroup.clone_children 1
-    chown system system /sys/fs/cgroup/cpuset/power_hal/non_interactive/cpuset.cpus
-
-on property:sys.power_hal.niproc=*
-    write /sys/fs/cgroup/cpuset/power_hal/non_interactive/cgroup.procs ${sys.power_hal.niproc}
-
-service power_hal_helper /system/vendor/bin/power_hal_helper
-    user system
-    group system
-    disabled
-    oneshot
-
-on property:init.svc.media=running
-    start power_hal_helper
-
-##############################################################
-# Source: device/intel/mixins/groups/security/txei/init.rc
-##############################################################
-on boot
-    write /sys/devices/pci0000:00/0000:00:1a.0/power/control auto
 ##############################################################
 # Source: device/intel/mixins/groups/memory/ksm/init.rc
 ##############################################################
@@ -302,6 +227,16 @@ on property:service.adb.tcp.port=-1
     stop adbd
     start adbd
 
+##############################################################
+# Source: device/intel/mixins/groups/bugreport/default/init.rc
+##############################################################
+# bugreport is triggered by holding down volume down, volume up and power
+service bugreport /system/bin/dumpstate -d -p -B \
+        -o /data/data/com.android.shell/files/bugreports/bugreport
+    class main
+    disabled
+    oneshot
+    keycodes 114 115 116
 ##############################################################
 # Source: device/intel/mixins/groups/debugfs/default/init.rc
 ##############################################################
