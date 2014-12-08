@@ -157,9 +157,9 @@ BOARD_SEPOLICY_UNION := \
     wlan_prov.te \
     wpa.te
 ##############################################################
-# Source: device/intel/mixins/groups/display-density/tv/BoardConfig.mk
+# Source: device/intel/mixins/groups/display-density/low/BoardConfig.mk
 ##############################################################
-ADDITIONAL_DEFAULT_PROPERTIES += ro.sf.lcd_density=213
+ADDITIONAL_DEFAULT_PROPERTIES += ro.sf.lcd_density=120
 
 ##############################################################
 # Source: device/intel/mixins/groups/cpu-arch/slm/BoardConfig.mk.1
