@@ -101,16 +101,12 @@ on init
     mkdir /mnt/libreg 0700 root root
     mount tmpfs tmpfs /mnt/libreg size=4096,mode=0600
 ##############################################################
-# Source: device/intel/mixins/groups/storage/sdcard-mmcblk1-4xUSB-sda-emulated/init.rc
+# Source: device/intel/mixins/groups/storage/4xUSB-sda-emulated/init.rc
 ##############################################################
 on init
     # See storage config details at http://source.android.com/tech/storage/
     mkdir /mnt/shell/emulated 0700 shell shell
     mkdir /storage/emulated 0555 root root
-
-    # make mount point for external sdcard
-    mkdir /mnt/media_rw/sdcard1 0700 media_rw media_rw
-    mkdir /storage/sdcard1 0700 root root
 
     # make mount point for usb thumb drives
     mkdir /mnt/media_rw/usbdisk 0700 media_rw media_rw
@@ -150,11 +146,6 @@ on post-fs-data
 # virtual sdcard daemon running as media_rw (1023)
 service sdcard /system/bin/sdcard -u 1023 -g 1023 -l /data/media /mnt/shell/emulated
     class late_start
-
-#external sdcard
-service fuse_sdcard1 /system/bin/sdcard -u 1023 -g 1023 -w 1023 -d /mnt/media_rw/sdcard1 /storage/sdcard1
-    class late_start
-    disabled
 
 #external storage
 service fuse_usbdisk /system/bin/sdcard -u 1023 -g 1023 -w 1023 -d /mnt/media_rw/usbdisk /storage/usbdisk

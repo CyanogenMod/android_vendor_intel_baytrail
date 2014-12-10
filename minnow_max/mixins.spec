@@ -14,7 +14,7 @@ cpu-arch: slm
 houdini: true
 bugreport: default
 graphics: ufo_gen7(use_opencl=true)
-storage: sdcard-mmcblk1-4xUSB-sda-emulated
+storage: 4xUSB-sda-emulated
 ethernet: dhcp
 audio: bytcr-rt564x
 media: ufo

@@ -267,10 +267,9 @@ BOARD_SEPOLICY_UNION += \
         file_contexts \
         color_config.te \
 ##############################################################
-# Source: device/intel/mixins/groups/storage/sdcard-mmcblk1-4xUSB-sda-emulated/BoardConfig.mk
+# Source: device/intel/mixins/groups/storage/4xUSB-sda-emulated/BoardConfig.mk
 ##############################################################
-DEVICE_PACKAGE_OVERLAYS += device/intel/common/storage/overlay-sdcard-usb
-RECOVERY_HAVE_SD_CARD := true
+DEVICE_PACKAGE_OVERLAYS += device/intel/common/storage/overlay-usb
 
 ##############################################################
 # Source: device/intel/mixins/groups/media/ufo/BoardConfig.mk
