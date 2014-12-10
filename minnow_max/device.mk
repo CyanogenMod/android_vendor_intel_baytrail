@@ -171,7 +171,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
         frameworks/native/data/etc/android.hardware.ethernet.xml:system/etc/permissions/android.hardware.ethernet.xml
 ##############################################################
-# Source: device/intel/mixins/groups/audio/bytcr-rt564x/product.mk
+# Source: device/intel/mixins/groups/audio/hdmi+usb/product.mk
 ##############################################################
 # Tinyalsa
 PRODUCT_PACKAGES_DEBUG += \
@@ -184,11 +184,6 @@ PRODUCT_PACKAGES += \
     audio.r_submix.default \
     audio.hdmi.$(TARGET_BOARD_PLATFORM) \
     audio.usb.default
-
-# SST Firmware
-PRODUCT_PACKAGES += \
-    fw_sst_0f28_ssp0.bin \
-    fw_sst_0f28_ssp2.bin
 
 ##############################################################
 # Source: device/intel/mixins/groups/media/ufo/product.mk

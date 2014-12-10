@@ -16,7 +16,7 @@ bugreport: default
 graphics: ufo_gen7(use_opencl=true)
 storage: 4xUSB-sda-emulated
 ethernet: dhcp
-audio: bytcr-rt564x
+audio: hdmi+usb
 media: ufo
 usb: host+acc
 touch: ft5x0x
