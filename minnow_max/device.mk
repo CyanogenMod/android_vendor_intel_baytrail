@@ -230,27 +230,6 @@ PRODUCT_PACKAGES += \
     com.android.future.usb.accessory
 
 ##############################################################
-# Source: device/intel/mixins/groups/usb-gadget/g_android/product.mk
-##############################################################
-# Set default USB interface
-ifeq ($(BUILD_FOR_CTS_AUTOMATION),true)
-# Build for automated CTS
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += persist.sys.usb.config=mtp,adb
-PRODUCT_COPY_FILES += device/intel/common/usb-gadget/adb_keys:root/adb_keys
-else
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += persist.sys.usb.config=mtp
-endif
-
-# Enable Secure Debugging
-ifneq ($(TARGET_BUILD_VARIANT),eng)
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.adb.secure=1
-endif
-
-# Add Intel adb keys for userdebug/eng builds
-ifneq ($(TARGET_BUILD_VARIANT),user)
-PRODUCT_COPY_FILES += device/intel/common/usb-gadget/adb_keys:root/adb_keys
-endif
-##############################################################
 # Source: device/intel/mixins/groups/touch/ft5x0x/product.mk
 ##############################################################
 PRODUCT_COPY_FILES += \

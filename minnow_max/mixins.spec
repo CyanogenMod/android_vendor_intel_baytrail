@@ -19,7 +19,6 @@ ethernet: dhcp
 audio: bytcr-rt564x
 media: ufo
 usb: host+acc
-usb-gadget: g_android
 touch: ft5x0x
 navigationbar: true
 device-type: tablet
