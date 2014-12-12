@@ -17,7 +17,7 @@
         <xi:include href="intel/ToneGenerator_V2_4.xml"/>
 
         <!-- FBA algorithms definitions -->
-        <xi:include href="intel/Algos_Gen3_5.xml"/>
+        <xi:include href="intel/VoiceAlgos_Gen3_5.xml"/>
 
         <!-- LPE Commit controls -->
         <xi:include href="intel/ModuleVoiceProcessingLock_V1_0.xml"/>
