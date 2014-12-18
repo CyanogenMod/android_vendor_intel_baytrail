@@ -16,4 +16,5 @@
 
 PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/minnow_max/minnow_max.mk \
+    $(LOCAL_DIR)/minnow_64p/minnow_64p.mk \
 

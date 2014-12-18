@@ -15,4 +15,5 @@
 #
 
 add_lunch_combo minnow_max-userdebug
+add_lunch_combo minnow_64p-userdebug
 
