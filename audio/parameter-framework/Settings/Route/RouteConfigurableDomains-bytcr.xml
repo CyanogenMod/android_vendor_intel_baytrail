@@ -614,7 +614,7 @@
               <SelectionCriterionRule SelectionCriterion="InputDevices" MatchesWhen="Includes" Value="VoiceCall"/>
               <SelectionCriterionRule SelectionCriterion="AndroidMode" MatchesWhen="Is" Value="InCsvCall"/>
               <CompoundRule Type="Any">
-                <SelectionCriterionRule SelectionCriterion="ModemAudioStatus" MatchesWhen="Is" Value="True"/>
+                <SelectionCriterionRule SelectionCriterion="ModemAudioAvailable" MatchesWhen="Is" Value="True"/>
               </CompoundRule>
             </CompoundRule>
           </CompoundRule>
@@ -894,7 +894,7 @@
         <CompoundRule Type="Any">
           <CompoundRule Type="All">
             <SelectionCriterionRule SelectionCriterion="AndroidMode" MatchesWhen="Is" Value="InCsvCall"/>
-            <SelectionCriterionRule SelectionCriterion="ModemAudioStatus" MatchesWhen="Is" Value="True"/>
+            <SelectionCriterionRule SelectionCriterion="ModemAudioAvailable" MatchesWhen="Is" Value="True"/>
             <SelectionCriterionRule SelectionCriterion="TtyDirection" MatchesWhen="Is" Value="Uplink"/>
             <SelectionCriterionRule SelectionCriterion="OutputDevices" MatchesWhen="Includes" Value="Headset"/>
           </CompoundRule>
@@ -908,7 +908,7 @@
               <SelectionCriterionRule SelectionCriterion="OutputFlags" MatchesWhen="Includes" Value="Fast"/>
               <SelectionCriterionRule SelectionCriterion="OutputFlags" MatchesWhen="Includes" Value="Deep"/>
               <SelectionCriterionRule SelectionCriterion="DirectStream" MatchesWhen="Is" Value="True"/>
-              <SelectionCriterionRule SelectionCriterion="ModemAudioStatus" MatchesWhen="Is" Value="True"/>
+              <SelectionCriterionRule SelectionCriterion="ModemAudioAvailable" MatchesWhen="Is" Value="True"/>
               <SelectionCriterionRule SelectionCriterion="FmEnabled" MatchesWhen="Is" Value="True"/>
             </CompoundRule>
           </CompoundRule>
@@ -922,7 +922,7 @@
               <SelectionCriterionRule SelectionCriterion="OutputFlags" MatchesWhen="Includes" Value="Fast"/>
               <SelectionCriterionRule SelectionCriterion="OutputFlags" MatchesWhen="Includes" Value="Deep"/>
               <SelectionCriterionRule SelectionCriterion="DirectStream" MatchesWhen="Is" Value="True"/>
-              <SelectionCriterionRule SelectionCriterion="ModemAudioStatus" MatchesWhen="Is" Value="True"/>
+              <SelectionCriterionRule SelectionCriterion="ModemAudioAvailable" MatchesWhen="Is" Value="True"/>
               <SelectionCriterionRule SelectionCriterion="FmEnabled" MatchesWhen="Is" Value="True"/>
             </CompoundRule>
           </CompoundRule>
@@ -955,7 +955,7 @@
           <CompoundRule Type="All">
             <SelectionCriterionRule SelectionCriterion="AndroidMode" MatchesWhen="Is" Value="InCsvCall"/>
             <CompoundRule Type="Any">
-              <SelectionCriterionRule SelectionCriterion="ModemAudioStatus" MatchesWhen="Is" Value="True"/>
+              <SelectionCriterionRule SelectionCriterion="ModemAudioAvailable" MatchesWhen="Is" Value="True"/>
             </CompoundRule>
             <CompoundRule Type="Any">
               <SelectionCriterionRule SelectionCriterion="OutputDevices" MatchesWhen="Includes" Value="Earpiece"/>
@@ -994,7 +994,7 @@
             <SelectionCriterionRule SelectionCriterion="OutputDevices" MatchesWhen="Includes" Value="Headset"/>
             <SelectionCriterionRule SelectionCriterion="AndroidMode" MatchesWhen="Is" Value="InCsvCall"/>
             <CompoundRule Type="Any">
-              <SelectionCriterionRule SelectionCriterion="ModemAudioStatus" MatchesWhen="Is" Value="True"/>
+              <SelectionCriterionRule SelectionCriterion="ModemAudioAvailable" MatchesWhen="Is" Value="True"/>
             </CompoundRule>
           </CompoundRule>
         </CompoundRule>
@@ -1058,7 +1058,7 @@
       <Configuration Name="Applicable">
         <CompoundRule Type="All">
           <SelectionCriterionRule SelectionCriterion="AndroidMode" MatchesWhen="Is" Value="InCsvCall"/>
-          <SelectionCriterionRule SelectionCriterion="ModemAudioStatus" MatchesWhen="Is" Value="True"/>
+          <SelectionCriterionRule SelectionCriterion="ModemAudioAvailable" MatchesWhen="Is" Value="True"/>
           <CompoundRule Type="Any">
             <SelectionCriterionRule SelectionCriterion="OutputDevices" MatchesWhen="Is" Value="Ihf"/>
             <SelectionCriterionRule SelectionCriterion="OutputDevices" MatchesWhen="Is" Value="Headset"/>
@@ -1143,7 +1143,7 @@
               <CompoundRule Type="All">
                 <SelectionCriterionRule SelectionCriterion="AndroidMode" MatchesWhen="Is" Value="InCsvCall"/>
                 <CompoundRule Type="Any">
-                  <SelectionCriterionRule SelectionCriterion="ModemAudioStatus" MatchesWhen="Is" Value="True"/>
+                  <SelectionCriterionRule SelectionCriterion="ModemAudioAvailable" MatchesWhen="Is" Value="True"/>
                 </CompoundRule>
               </CompoundRule>
             </CompoundRule>
@@ -1178,7 +1178,7 @@
             <CompoundRule Type="All">
               <SelectionCriterionRule SelectionCriterion="AndroidMode" MatchesWhen="Is" Value="InCsvCall"/>
               <CompoundRule Type="Any">
-                <SelectionCriterionRule SelectionCriterion="ModemAudioStatus" MatchesWhen="Is" Value="True"/>
+                <SelectionCriterionRule SelectionCriterion="ModemAudioAvailable" MatchesWhen="Is" Value="True"/>
               </CompoundRule>
               <CompoundRule Type="Any">
                 <SelectionCriterionRule SelectionCriterion="OutputDevices" MatchesWhen="Includes" Value="Sco"/>
@@ -1335,7 +1335,7 @@
           <CompoundRule Type="All">
             <SelectionCriterionRule SelectionCriterion="AndroidMode" MatchesWhen="Is" Value="InCsvCall"/>
             <CompoundRule Type="Any">
-              <SelectionCriterionRule SelectionCriterion="ModemAudioStatus" MatchesWhen="Is" Value="True"/>
+              <SelectionCriterionRule SelectionCriterion="ModemAudioAvailable" MatchesWhen="Is" Value="True"/>
             </CompoundRule>
           </CompoundRule>
         </CompoundRule>
@@ -1368,7 +1368,7 @@
           <CompoundRule Type="All">
             <SelectionCriterionRule SelectionCriterion="AndroidMode" MatchesWhen="Is" Value="InCsvCall"/>
             <CompoundRule Type="Any">
-              <SelectionCriterionRule SelectionCriterion="ModemAudioStatus" MatchesWhen="Is" Value="True"/>
+              <SelectionCriterionRule SelectionCriterion="ModemAudioAvailable" MatchesWhen="Is" Value="True"/>
             </CompoundRule>
           </CompoundRule>
         </CompoundRule>
@@ -1399,7 +1399,7 @@
         <CompoundRule Type="Any">
           <CompoundRule Type="All">
             <SelectionCriterionRule SelectionCriterion="AndroidMode" MatchesWhen="Is" Value="InCsvCall"/>
-            <SelectionCriterionRule SelectionCriterion="ModemAudioStatus" MatchesWhen="Is" Value="True"/>
+            <SelectionCriterionRule SelectionCriterion="ModemAudioAvailable" MatchesWhen="Is" Value="True"/>
             <SelectionCriterionRule SelectionCriterion="StatesChanged" MatchesWhen="Includes" Value="CsvBandType"/>
           </CompoundRule>
           <CompoundRule Type="All">
@@ -2066,7 +2066,7 @@
               <SelectionCriterionRule SelectionCriterion="AndroidMode" MatchesWhen="Is" Value="InVoipCall"/>
               <CompoundRule Type="All">
                 <SelectionCriterionRule SelectionCriterion="AndroidMode" MatchesWhen="Is" Value="InCsvCall"/>
-                <SelectionCriterionRule SelectionCriterion="ModemAudioStatus" MatchesWhen="Is" Value="True"/>
+                <SelectionCriterionRule SelectionCriterion="ModemAudioAvailable" MatchesWhen="Is" Value="True"/>
               </CompoundRule>
             </CompoundRule>
           </CompoundRule>
@@ -2102,7 +2102,7 @@
         <CompoundRule Type="Any">
           <CompoundRule Type="All">
             <SelectionCriterionRule SelectionCriterion="AndroidMode" MatchesWhen="Is" Value="InCsvCall"/>
-            <SelectionCriterionRule SelectionCriterion="ModemAudioStatus" MatchesWhen="Is" Value="True"/>
+            <SelectionCriterionRule SelectionCriterion="ModemAudioAvailable" MatchesWhen="Is" Value="True"/>
             <CompoundRule Type="Any">
               <SelectionCriterionRule SelectionCriterion="OutputDevices" MatchesWhen="Includes" Value="Sco"/>
               <SelectionCriterionRule SelectionCriterion="OutputDevices" MatchesWhen="Includes" Value="ScoHeadset"/>
@@ -2138,7 +2138,7 @@
         <CompoundRule Type="Any">
           <CompoundRule Type="All">
             <SelectionCriterionRule SelectionCriterion="AndroidMode" MatchesWhen="Is" Value="InCsvCall"/>
-            <SelectionCriterionRule SelectionCriterion="ModemAudioStatus" MatchesWhen="Is" Value="True"/>
+            <SelectionCriterionRule SelectionCriterion="ModemAudioAvailable" MatchesWhen="Is" Value="True"/>
             <SelectionCriterionRule SelectionCriterion="OutputDevices" MatchesWhen="Includes" Value="Headset"/>
           </CompoundRule>
           <SelectionCriterionRule SelectionCriterion="InputDevices" MatchesWhen="Includes" Value="Headset"/>
@@ -3009,7 +3009,7 @@
         <CompoundRule Type="All">
           <SelectionCriterionRule SelectionCriterion="AndroidMode" MatchesWhen="Is" Value="InCsvCall"/>
           <SelectionCriterionRule SelectionCriterion="ModemState" MatchesWhen="Is" Value="True"/>
-          <SelectionCriterionRule SelectionCriterion="ModemAudioStatus" MatchesWhen="Is" Value="True"/>
+          <SelectionCriterionRule SelectionCriterion="ModemAudioAvailable" MatchesWhen="Is" Value="True"/>
           <CompoundRule Type="Any">
             <SelectionCriterionRule SelectionCriterion="OutputDevices" MatchesWhen="Is" Value="Ihf"/>
             <SelectionCriterionRule SelectionCriterion="OutputDevices" MatchesWhen="Is" Value="Headset"/>
@@ -3071,7 +3071,7 @@
         <CompoundRule Type="Any">
           <CompoundRule Type="All">
             <SelectionCriterionRule SelectionCriterion="AndroidMode" MatchesWhen="Is" Value="InCsvCall"/>
-            <SelectionCriterionRule SelectionCriterion="ModemAudioStatus" MatchesWhen="Is" Value="True"/>
+            <SelectionCriterionRule SelectionCriterion="ModemAudioAvailable" MatchesWhen="Is" Value="True"/>
             <SelectionCriterionRule SelectionCriterion="CsvBandType" MatchesWhen="Is" Value="NB"/>
           </CompoundRule>
           <CompoundRule Type="All">
@@ -3084,7 +3084,7 @@
         <CompoundRule Type="Any">
           <CompoundRule Type="All">
             <SelectionCriterionRule SelectionCriterion="AndroidMode" MatchesWhen="Is" Value="InCsvCall"/>
-            <SelectionCriterionRule SelectionCriterion="ModemAudioStatus" MatchesWhen="Is" Value="True"/>
+            <SelectionCriterionRule SelectionCriterion="ModemAudioAvailable" MatchesWhen="Is" Value="True"/>
             <SelectionCriterionRule SelectionCriterion="CsvBandType" MatchesWhen="Is" Value="WB"/>
           </CompoundRule>
           <CompoundRule Type="All">
@@ -3097,7 +3097,7 @@
         <CompoundRule Type="Any">
           <CompoundRule Type="All">
             <SelectionCriterionRule SelectionCriterion="AndroidMode" MatchesWhen="Is" Value="InCsvCall"/>
-            <SelectionCriterionRule SelectionCriterion="ModemAudioStatus" MatchesWhen="Is" Value="True"/>
+            <SelectionCriterionRule SelectionCriterion="ModemAudioAvailable" MatchesWhen="Is" Value="True"/>
             <SelectionCriterionRule SelectionCriterion="CsvBandType" MatchesWhen="Is" Value="SuperWB"/>
           </CompoundRule>
           <CompoundRule Type="All">

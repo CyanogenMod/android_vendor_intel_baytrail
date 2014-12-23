@@ -42,7 +42,7 @@ supDomain: StreamRoute
 							InputDevices Includes VoiceCall
 							AndroidMode Is InCsvCall
 							ANY
-								ModemAudioStatus Is True
+								ModemAudioAvailable Is True
 								# CmeDirectStreamPlayback Is True
 								# CmeDirectStreamCapture Is True
 					ANY
@@ -195,7 +195,7 @@ supDomain: Route
 				ANY
 					ALL
 						AndroidMode Is InCsvCall
-						ModemAudioStatus Is True
+						ModemAudioAvailable Is True
 						TtyDirection Is Uplink
 						OutputDevices Includes Headset
 					ALL
@@ -207,7 +207,7 @@ supDomain: Route
 							OutputFlags Includes Fast
 							OutputFlags Includes Deep
 							DirectStream Is True
-							ModemAudioStatus Is True
+							ModemAudioAvailable Is True
 							FmEnabled Is True
 							# CmeDirectStreamPlayback Is True
 					## Copied from HwCodec1IA
@@ -220,7 +220,7 @@ supDomain: Route
 							OutputFlags Includes Fast
 							OutputFlags Includes Deep
 							DirectStream Is True
-							ModemAudioStatus Is True
+							ModemAudioAvailable Is True
 							FmEnabled Is True
 							# CmeDirectStreamPlayback Is True
 
@@ -238,7 +238,7 @@ supDomain: Route
 					ALL
 						AndroidMode Is InCsvCall
 						ANY
-							ModemAudioStatus Is True
+							ModemAudioAvailable Is True
 							# CmeDirectStreamCapture Is True
 						ANY
 							OutputDevices Includes Earpiece
@@ -270,7 +270,7 @@ supDomain: Route
 						OutputDevices Includes Headset
 						AndroidMode Is InCsvCall
 						ANY
-							ModemAudioStatus Is True
+							ModemAudioAvailable Is True
 							# CmeDirectStreamCapture Is True
 
 				/Route/route_mgr/routes/hwcodec0ia/route_duplex/capture/status/applicable = 1
@@ -299,7 +299,7 @@ supDomain: Route
 			conf: Applicable
 				ALL
 					AndroidMode Is InCsvCall
-					ModemAudioStatus Is True
+					ModemAudioAvailable Is True
 					ANY
 						OutputDevices Is Ihf
 						OutputDevices Is Headset
@@ -351,7 +351,7 @@ supDomain: Route
 							ALL
 								AndroidMode Is InCsvCall
 								ANY
-									ModemAudioStatus Is True
+									ModemAudioAvailable Is True
 									# CmeDirectStreamPlayback Is True
 
 				/Route/route_mgr/routes/bt_ia/route_duplex/playback/status/applicable = 1
@@ -367,7 +367,7 @@ supDomain: Route
 						ALL
 							AndroidMode Is InCsvCall
 							ANY
-								ModemAudioStatus Is True
+								ModemAudioAvailable Is True
 								# CmeDirectStreamCapture Is True
 							ANY
 								OutputDevices Includes Sco
@@ -460,7 +460,7 @@ supDomain: Route
 						ALL
 							AndroidMode Is InCsvCall
 							ANY
-								ModemAudioStatus Is True
+								ModemAudioAvailable Is True
 								# CmeDirectStreamCapture Is True
 
 					/Route/route_mgr/routes/voice_processing_lock/route_duplex/capture/status/applicable = 1
@@ -476,7 +476,7 @@ supDomain: Route
 						ALL
 							AndroidMode Is InCsvCall
 							ANY
-								ModemAudioStatus Is True
+								ModemAudioAvailable Is True
 								# CmeDirectStreamPlayback Is True
 
 					/Route/route_mgr/routes/voice_processing_lock/route_duplex/playback/status/applicable = 1
@@ -490,7 +490,7 @@ supDomain: Route
 				ANY
 					ALL
 						AndroidMode Is InCsvCall
-						ModemAudioStatus Is True
+						ModemAudioAvailable Is True
 						StatesChanged Includes CsvBandType
 					ALL
 						AndroidMode Is InVoipCall
