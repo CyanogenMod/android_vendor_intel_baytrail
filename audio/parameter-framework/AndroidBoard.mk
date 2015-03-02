@@ -13,7 +13,6 @@ include $(CLEAR_VARS)
 LOCAL_MODULE := parameter-framework.audio.baytrail
 LOCAL_MODULE_TAGS := optional
 LOCAL_REQUIRED_MODULES := \
-        SstSubsystem-bytcr-rt56xx-common.xml \
         SysfsPmdownTimeSubsystem.xml \
         ConfigurationSubsystem.xml \
         CommonAlgoTypes.xml \
@@ -61,15 +60,6 @@ include $(BUILD_PHONY_PACKAGE)
 ##################################################
 
 ######### Audio Structures #########
-
-include $(CLEAR_VARS)
-LOCAL_MODULE := SstSubsystem-bytcr-rt56xx-common.xml
-LOCAL_MODULE_TAGS := optional
-LOCAL_MODULE_CLASS := ETC
-LOCAL_MODULE_RELATIVE_PATH := parameter-framework/Structure/Audio
-LOCAL_SRC_FILES := Structure/Audio/$(LOCAL_MODULE)
-include $(BUILD_PREBUILT)
-
 
 include $(CLEAR_VARS)
 LOCAL_MODULE := SysfsPmdownTimeSubsystem.xml
