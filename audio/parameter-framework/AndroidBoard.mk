@@ -13,8 +13,6 @@ include $(CLEAR_VARS)
 LOCAL_MODULE := parameter-framework.audio.baytrail
 LOCAL_MODULE_TAGS := optional
 LOCAL_REQUIRED_MODULES := \
-        SysfsPmdownTimeSubsystem.xml \
-        ConfigurationSubsystem.xml \
         CommonAlgoTypes.xml \
         Gain.xml \
         VoiceVolume.xml \
@@ -58,17 +56,6 @@ LOCAL_REQUIRED_MODULES :=  \
 include $(BUILD_PHONY_PACKAGE)
 
 ##################################################
-
-######### Audio Structures #########
-
-include $(CLEAR_VARS)
-LOCAL_MODULE := SysfsPmdownTimeSubsystem.xml
-LOCAL_MODULE_TAGS := optional
-LOCAL_MODULE_CLASS := ETC
-LOCAL_MODULE_RELATIVE_PATH := parameter-framework/Structure/Audio
-LOCAL_SRC_FILES := Structure/Audio/$(LOCAL_MODULE)
-LOCAL_REQUIRED_MODULES := libfs-subsystem
-include $(BUILD_PREBUILT)
 
 ######### Route PFW #########
 ######### Route Structures #########
