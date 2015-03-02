@@ -44,7 +44,7 @@ LOCAL_MODULE := parameter-framework.audio.$(TARGET_DEVICE)
 LOCAL_MODULE_TAGS := optional
 LOCAL_REQUIRED_MODULES := \
         parameter-framework.audio.$(TARGET_DEVICE).nodomains \
-        AudioConfigurableDomains-$(DEVICE_SOUND_CARD_NAME)-default.xml
+        AudioConfigurableDomains-$(TARGET_DEVICE).xml
 include $(BUILD_PHONY_PACKAGE)
 
 include $(CLEAR_VARS)
@@ -52,8 +52,8 @@ LOCAL_MODULE := parameter-framework.audio.$(TARGET_DEVICE).nodomains
 LOCAL_MODULE_TAGS := optional
 LOCAL_REQUIRED_MODULES :=  \
         parameter-framework.audio.baytrail \
-        AudioClass-$(DEVICE_SOUND_CARD_NAME)-default.xml \
-        ParameterFrameworkConfiguration-$(DEVICE_SOUND_CARD_NAME)-default.xml
+        AudioClass-$(TARGET_DEVICE).xml \
+        ParameterFrameworkConfiguration-$(TARGET_DEVICE).xml
 
 include $(BUILD_PHONY_PACKAGE)
 
