@@ -10,23 +10,6 @@ LOCAL_PATH := $(PLATFORM_PFW_CONFIG_PATH)
 ##################################################
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := parameter-framework.audio.baytrail
-LOCAL_MODULE_TAGS := optional
-LOCAL_REQUIRED_MODULES := \
-        CommonAlgoTypes.xml \
-        Gain.xml \
-        VoiceVolume.xml \
-        Dcr.xml \
-        SbaFir.xml \
-        SbaIir.xml \
-        Lpro.xml \
-        Mdrc.xml \
-        ToneGenerator_V2_4.xml \
-        ModuleVoiceProcessingLock_V1_0.xml \
-        VoiceAlgos_Gen3_5
-include $(BUILD_PHONY_PACKAGE)
-
-include $(CLEAR_VARS)
 LOCAL_MODULE := parameter-framework.route.baytrail
 LOCAL_MODULE_TAGS := optional
 LOCAL_REQUIRED_MODULES :=  \
