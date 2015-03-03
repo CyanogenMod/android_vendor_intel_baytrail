@@ -40,3 +40,4 @@ memtrack: true
 serialport: ttyS0
 suspend: never
 bluetooth: btusb
+adb_net: true
