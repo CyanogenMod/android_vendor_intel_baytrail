@@ -13,9 +13,7 @@ include $(CLEAR_VARS)
 LOCAL_MODULE := parameter-framework.route.baytrail
 LOCAL_MODULE_TAGS := optional
 LOCAL_REQUIRED_MODULES :=  \
-        ParameterFrameworkConfigurationRoute.xml \
-        RouteSubsystem-common-bytcr.xml \
-        RouteSubsystem-bytcr.xml \
+        RouteParameterFramework.xml \
         RouteClass-bytcr.xml \
         RouteConfigurableDomains-bytcr.xml
 include $(BUILD_PHONY_PACKAGE)
@@ -34,7 +32,7 @@ LOCAL_MODULE_TAGS := optional
 LOCAL_REQUIRED_MODULES :=  \
         parameter-framework.audio.baytrail \
         AudioClass-$(TARGET_DEVICE).xml \
-        ParameterFrameworkConfiguration-$(TARGET_DEVICE).xml
+        AudioParameterFramework.xml
 
 include $(BUILD_PHONY_PACKAGE)
 
@@ -94,13 +92,13 @@ ifeq ($(pfw_rebuild_settings),true)
 include $(CLEAR_PFW_VARS)
 # Refresh domain file
 LOCAL_REQUIRED_MODULES := \
-    ParameterFrameworkConfigurationRoute.xml \
+    RouteParameterFramework.xml \
     RouteClass-bytcr.xml \
     RouteSubsystem-common-bytcr.xml \
     RouteSubsystem-bytcr.xml \
 
 PFW_COPYBACK := Settings/Route/$(LOCAL_MODULE)
-PFW_TOPLEVEL_FILE := $(TARGET_OUT_ETC)/parameter-framework/ParameterFrameworkConfigurationRoute-$(DEVICE_SOUND_CARD_NAME)-default.xml
+PFW_TOPLEVEL_FILE := $(TARGET_OUT_ETC)/parameter-framework/RouteParameterFramework.xml
 PFW_CRITERIA_FILE := $(COMMON_PFW_CONFIG_PATH)/RouteCriteria.txt
 PFW_EDD_FILES := \
     $(PLATFORM_PFW_CONFIG_PATH)/Settings/Route/routes-applicability.pfw \
