@@ -17,9 +17,7 @@
       {"type":"fastboot", "args":"flash recovery", "desc":"Flashing recovery partition", "source":"boot:recovery", "target":"recovery.img"},
       {"type":"fastboot", "args":"reboot", "desc":"Rebooting"}],
    "blank":
-     [{"type":"fastboot", "args":"flash fw_stage2", "desc":"Flashing fw_stage2 image", "source":"provdatazip", "target":"emmc.bin", "mandatory":false, "!platform":["byt_mrd7", "minnow_max", "minnow_64p", "sharkscove"]},
-      {"type":"sleep", "timeout":5000},
-      {"type":"fastboot", "args":"flash osloader", "desc":"Flashing osloader image", "source":"bootloaderzip", "target":"loader.efi"},
+     [{"type":"fastboot", "args":"flash osloader", "desc":"Flashing osloader image", "source":"bootloaderzip", "target":"loader.efi"},
       {"type":"fastboot", "args":"boot", "desc":"Uploading fastboot image.", "source":"fastboot", "target":"fastboot.img"},
       {"type":"sleep", "timeout":25000},
       {"type":"fastboot", "args":"oem unlock", "desc":"Unlock device",  "timeout":360000},
