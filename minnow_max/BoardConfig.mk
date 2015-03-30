@@ -225,6 +225,11 @@ BOARD_SEPOLICY_UNION += \
 DEVICE_PACKAGE_OVERLAYS += device/intel/common/storage/overlay-usb
 
 ##############################################################
+# Source: device/intel/mixins/groups/audio/hdmi+usb/BoardConfig.mk
+##############################################################
+BOARD_USES_ALSA_AUDIO := true
+BOARD_USES_TINY_ALSA_AUDIO := true
+##############################################################
 # Source: device/intel/mixins/groups/media/ufo/BoardConfig.mk
 ##############################################################
 # Settings for the Intel-optimized codecs and plug-ins:
