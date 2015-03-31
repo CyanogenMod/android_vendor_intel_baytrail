@@ -286,14 +286,6 @@ WITH_DEXPREOPT := true
 endif
 
 ##############################################################
-# Source: device/intel/mixins/groups/autodetect/default/BoardConfig.mk
-##############################################################
-BOARD_SEPOLICY_DIRS += device/intel/common/sepolicy/autodetect/false
-
-# Please keep this list in alphabetical order.
-BOARD_SEPOLICY_UNION +=\
-	init.te \
-##############################################################
 # Source: device/intel/mixins/groups/mixin-check/default/BoardConfig.mk
 ##############################################################
 mixin_update := $(wildcard device/intel/mixins/mixin-update)
