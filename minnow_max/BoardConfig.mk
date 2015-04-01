@@ -1,7 +1,5 @@
 DEVICE_PACKAGE_OVERLAYS += device/intel/baytrail/minnow_max/overlay
 
-BOARD_USERDATAIMAGE_PARTITION_SIZE := 4587520000
-
 BOARD_KERNEL_CMDLINE += i915.disable_power_well=0
 
 BOARD_FLASHFILES += \
