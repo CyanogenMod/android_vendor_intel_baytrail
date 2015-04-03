@@ -1,0 +1,23 @@
+#
+# OEM Variables
+#
+# GMIN OEM variables are set by "fastboot oem setvar" or "fastboot
+# flash oemvars", and stored as EFI variables.  By default, they are
+# under the loader GUID of 4a67b082-0a4c-41cf-b6c7-440b29bb8c4f
+#
+# The syntax supports "#-style" end of line comments
+#
+# Variable settings are specified as "<var> <val>".  Whitespace around
+# the variable name is removed, as is trailing whitespace at the end
+# of the line.  The value can otherwise contain any printable
+# character and is stored as an 8-bit string in the EFI variable's
+# value.  Non-printable bytes can be encoded with "%xx" URL-style
+# notation.
+#
+# A line of the form:
+#     GUID = xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+# will change the GUID used for subsequent lines.
+#
+
+# Maximum timeout to check for magic key at boot; loader GUID
+MagicKeyTimeout     40
