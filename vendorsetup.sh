@@ -14,6 +14,6 @@
 # limitations under the License.
 #
 
-add_lunch_combo minnow_max-userdebug
-add_lunch_combo minnow_64p-userdebug
+add_lunch_combo minnow_max-eng
+add_lunch_combo minnow_64p-eng
 
