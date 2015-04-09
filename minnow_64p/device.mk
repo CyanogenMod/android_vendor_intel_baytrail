@@ -72,7 +72,7 @@ PRODUCT_COPY_FILES += \
 	$(foreach f, $(LOCAL_KERNEL_MODULE_FILES), $(f):system/lib/modules/$(notdir $(f))) \
   $(foreach f, $(LOCAL_KERNEL_MODULE_TREE_FILES), $(LOCAL_KERNEL_PATH)/lib/modules/$(f):system/lib/modules/$(f))
 ##############################################################
-# Source: device/intel/mixins/groups/boot-arch/minnow_max_mmc/product.mk
+# Source: device/intel/mixins/groups/boot-arch/efi/product.mk
 ##############################################################
 TARGET_UEFI_ARCH := x86_64
 ifeq ($(TARGET_BUILD_VARIANT),user)

@@ -6,7 +6,7 @@ product.mk: device.mk
 
 [groups]
 kernel: gmin64(path=gmin,loglevel=5,binary_name=bzImage, interactive_governor=false, dev-kernel=false)
-boot-arch: minnow_max_mmc(uefi_arch=x86_64,fastboot=user,acpi_permissive=true)
+boot-arch: efi(uefi_arch=x86_64,fastboot=user,acpi_permissive=true,device=/dev/block/mmcblk0)
 sepolicy: intel
 display-density: low
 dalvik-heap: tablet-7in-hdpi-1024

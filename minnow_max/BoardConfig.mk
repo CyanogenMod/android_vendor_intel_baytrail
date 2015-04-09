@@ -25,7 +25,7 @@ BOARD_KERNEL_CMDLINE += \
         firmware_class.path=/system/etc/firmware \
 
 ##############################################################
-# Source: device/intel/mixins/groups/boot-arch/minnow_max_mmc/BoardConfig.mk
+# Source: device/intel/mixins/groups/boot-arch/efi/BoardConfig.mk
 ##############################################################
 #
 # -- OTA RELATED DEFINES --
